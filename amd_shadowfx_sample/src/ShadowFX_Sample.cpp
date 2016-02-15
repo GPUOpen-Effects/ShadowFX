@@ -323,6 +323,7 @@ void    CALLBACK OnKeyboard(UINT nChar, bool bKeyDown, bool bAltDown, void* pUse
 void    CALLBACK OnGUIEvent(UINT nEvent, int nControlID, CDXUTControl* pControl, void* pUserContext);
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext);
 
+void    CALLBACK OnD3D11BeforeCreateDevice(void* pUserContext);
 HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
 HRESULT CALLBACK OnD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChain* pSwapChain, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
 void    CALLBACK OnD3D11ReleasingSwapChain(void* pUserContext);
@@ -349,8 +350,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
-    _CrtCheckMemory();
-
     // Disable gamma correction on this sample
     DXUTSetIsInGammaCorrectMode(false);
 
@@ -359,6 +358,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     DXUTSetCallbackKeyboard(OnKeyboard);
     DXUTSetCallbackFrameMove(OnFrameMove);
 
+    DXUTSetCallbackD3D11BeforeDeviceCreated(OnD3D11BeforeCreateDevice);
     DXUTSetCallbackD3D11DeviceCreated(OnD3D11CreateDevice);
     DXUTSetCallbackD3D11SwapChainResized(OnD3D11ResizedSwapChain);
     DXUTSetCallbackD3D11FrameRender(OnD3D11FrameRender);
@@ -367,9 +367,16 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
     InitApplicationUI();
 
+    // It is okay to call ShadowFX_GetVersion before ShadowFX_Initialize
+    unsigned int major, minor, patch;
+    AMD::ShadowFX_GetVersion(&major, &minor, &patch);
+
+    WCHAR windowTitle[64];
+    swprintf_s(windowTitle, 64, L"AMD ShadowFX v%d.%d.%d", major, minor, patch);
+
     DXUTInit(true, true);                 // Use this line instead to try to create a hardware device
     DXUTSetCursorSettings(true, true);    // Show the cursor and clip it when in full screen
-    DXUTCreateWindow(L"AMD ShadowFX v1.3");
+    DXUTCreateWindow(windowTitle);
 
     DXUTCreateDevice(D3D_FEATURE_LEVEL_11_0, true, g_Width, g_Height);
     DXUTMainLoop();
@@ -434,6 +441,29 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, boo
 }
 
 //--------------------------------------------------------------------------------------
+// Perform any initialization that needs to happen before D3D11 device creation
+//--------------------------------------------------------------------------------------
+void CALLBACK OnD3D11BeforeCreateDevice(void* pUserContext)
+{
+    int gpuCount = 0;
+    long long sizeInBytes = 0;
+
+    AGSReturnCode agsHr;
+    AGSConfiguration agsConfig;
+    AGSGPUInfo gpuInfo;
+
+    // Set crossfireMode to AGS_CROSSFIRE_MODE_EXPLICIT_AFR to request
+    // that the Crossfire API be enabled, to allow explicit control of
+    // multi-GPU resource synchronization
+    agsConfig.crossfireMode = AGS_CROSSFIRE_MODE_EXPLICIT_AFR;
+
+    // Call agsInit before D3D11 device creation
+    agsHr = agsInit(&g_agsContext, &agsConfig, &gpuInfo);
+    agsHr = agsGetTotalGPUCount(g_agsContext, &gpuCount);
+    agsHr = agsGetGPUMemorySize(g_agsContext, 0, &sizeInBytes);
+}
+
+//--------------------------------------------------------------------------------------
 // Create any D3D11 resources that aren't dependant on the back buffer
 //--------------------------------------------------------------------------------------
 HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext)
@@ -442,21 +472,19 @@ HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFAC
 
     unsigned int extensionMask = 0;
     AGSReturnCode agsHr;
-    AGSGPUInfo agsInfo;
-    agsHr = agsInit(&g_agsContext, &agsInfo);
-    agsHr = agsGetCrossfireGPUCount(g_agsContext, &g_agsGpuCount);
+
+    // Call agsDriverExtensions_Init after D3D11 device creation
     agsHr = agsDriverExtensions_Init(g_agsContext, pd3dDevice, &extensionMask);
 
-    if (g_agsGpuCount < 2 || 
+    // If AGS_EXTENSION_CROSSFIRE_API is available, Crossfire GPU count will be updated during agsDriverExtensions_Init
+    agsHr = agsGetCrossfireGPUCount(g_agsContext, &g_agsGpuCount);
+
+    if (g_agsGpuCount < 2 ||
         (extensionMask & AGS_EXTENSION_CROSSFIRE_API) == 0)
     {
         agsHr = agsDriverExtensions_DeInit(g_agsContext);
         agsHr = agsDeInit(g_agsContext);
         g_agsContext = NULL; 
-    }
-    else
-    {
-        agsHr = agsDriverExtensions_SetCrossfireMode(g_agsContext, AGS_CROSSFIRE_MODE_EXPLICIT_AFR);
     }
 
     ID3D11DeviceContext* pd3dContext = DXUTGetD3D11DeviceContext();
@@ -542,8 +570,8 @@ HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFAC
 
     // Load the meshes
 
-    V_RETURN(g_Tree.Create(pd3dDevice, "..\\media\\CoconutTree\\", "coconut.sdkmesh", true));
-    V_RETURN(g_BoxPlane.Create(pd3dDevice, "..\\media\\Plane\\", "plane.sdkmesh", true));
+    V_RETURN(g_Tree.Create(pd3dDevice, "..\\media\\coconuttree\\", "coconut.sdkmesh", true));
+    V_RETURN(g_BoxPlane.Create(pd3dDevice, "..\\media\\plane\\", "plane.sdkmesh", true));
 
     g_MeshModelMatrix[0] = XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(5, 0, 0);
     /*
@@ -843,7 +871,9 @@ void SetCameraConstantBufferData(ID3D11DeviceContext* pd3dContext,
 
     pd3dContext->Map(pd3dCB, 0, D3D11_MAP_WRITE_DISCARD, 0, &MappedResource);
     if (MappedResource.pData)
+    {
         memcpy(MappedResource.pData, pCameraData, sizeof(S_CAMERA_DATA) * nCount);
+    }
     pd3dContext->Unmap(pd3dCB, 0);
 }
 
