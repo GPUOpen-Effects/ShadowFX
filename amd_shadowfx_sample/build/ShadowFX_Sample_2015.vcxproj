@@ -137,6 +137,7 @@ xcopy "..\..\AGS_LIB\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</Command>
   <ItemGroup>
     <None Include="..\src\ResourceFiles\dpiaware.manifest" />
     <None Include="..\src\Shaders\ShadowFX_Sample.hlsl" />
+    <None Include="..\src\ShadowFX_Sample_UI.inl" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\src\ResourceFiles\ShadowFX_Sample.rc" />

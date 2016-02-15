@@ -15,6 +15,7 @@
     <None Include="..\src\Shaders\ShadowFX_Sample.hlsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\src\ShadowFX_Sample_UI.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\ResourceFiles\resource.h">

@@ -71,7 +71,7 @@ project (_AMD_LIBRARY_NAME .. "_Sample")
    postbuildcommands { amdSamplePostbuildCommands(true, false) }
    postbuildmessage "Copying dependencies..."
 
-   files { "../src/**.h", "../src/**.cpp", "../src/**.rc", "../src/**.manifest", "../src/**.hlsl" }
+   files { "../src/**.h", "../src/**.cpp", "../src/**.rc", "../src/**.manifest", "../src/**.hlsl", "../src/**.inl" }
    includedirs { "../src/ResourceFiles", "../../AMD_%{_AMD_LIBRARY_NAME}/inc", "../../AMD_LIB/inc", "../../AMD_SDK/inc", "../../AGS_LIB/inc", "../../DXUT/Core", "../../DXUT/Optional" }
    libdirs { "../../AGS_LIB/lib" }
    links { "AMD_%{_AMD_LIBRARY_NAME}", "AMD_LIB", "AMD_SDK_Minimal", "DXUT", "DXUTOpt", "amd_ags_%{cfg.platform}", "d3dcompiler", "dxguid", "winmm", "comctl32", "Usp10", "Shlwapi" }
