@@ -1,5 +1,5 @@
-#ifndef _AMD_SHADOWS_FILTER_SIZE_7_POISSON_INC_
-#define _AMD_SHADOWS_FILTER_SIZE_7_POISSON_INC_
+#ifndef AMD_SHADOWS_FILTER_SIZE_7_POISSON_INC
+#define AMD_SHADOWS_FILTER_SIZE_7_POISSON_INC
 
 static const uint g_PoissonSamplesCount = 18;
 
@@ -25,4 +25,4 @@ static const float2 g_PoissonSamples[g_PoissonSamplesCount] =
   { 2.090277f, 2.286526f }
 };
 
-#endif  // _AMD_SHADOWS_FILTER_SIZE_7_POISSON_INC_
+#endif  // AMD_SHADOWS_FILTER_SIZE_7_POISSON_INC

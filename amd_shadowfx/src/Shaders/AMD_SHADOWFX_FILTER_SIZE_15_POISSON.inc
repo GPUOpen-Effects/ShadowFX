@@ -1,5 +1,5 @@
-#ifndef _AMD_SHADOWFX_FILTER_SIZE_15_POISSON_INC_
-#define _AMD_SHADOWFX_FILTER_SIZE_15_POISSON_INC_
+#ifndef AMD_SHADOWFX_FILTER_SIZE_15_POISSON_INC
+#define AMD_SHADOWFX_FILTER_SIZE_15_POISSON_INC
 
 static const uint g_PoissonSamplesCount=51;
 
@@ -58,4 +58,4 @@ static const float2 g_PoissonSamples[g_PoissonSamplesCount] =
   { 4.915648f, 0.6151388f }
 };
 
-#endif  // _AMD_SHADOWFX_FILTER_SIZE_15_POISSON_INC_
+#endif  // AMD_SHADOWFX_FILTER_SIZE_15_POISSON_INC

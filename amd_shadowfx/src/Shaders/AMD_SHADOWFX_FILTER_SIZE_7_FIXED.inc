@@ -1,5 +1,5 @@
-#ifndef _AMD_SHADOWFX_FILTER_SIZE_7_FIXED_INC_
-#define _AMD_SHADOWFX_FILTER_SIZE_7_FIXED_INC_
+#ifndef AMD_SHADOWFX_FILTER_SIZE_7_FIXED_INC
+#define AMD_SHADOWFX_FILTER_SIZE_7_FIXED_INC
 
 // Blocker search window _C_A_N_ potentially be of a different size than filtering window
 // Usually this would be a performance benefit to have a smaller blocker search window
@@ -54,4 +54,4 @@ static const float g_lowGaussianWeight[AMD_SHADOWFX_FILTER_SIZE][AMD_SHADOWFX_FI
   { 1.96519161240319E-05, 0.00023940934949727, 0.00107295826497866, 0.0017690091140438, 0.0010729582649786, 0.00023940934949727, 1.96519161240319E-05 }
 };
 
-#endif  // _AMD_SHADOWFX_FILTER_SIZE_7_FIXED_INC_
+#endif  // AMD_SHADOWFX_FILTER_SIZE_7_FIXED_INC

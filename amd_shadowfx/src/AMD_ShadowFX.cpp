@@ -68,6 +68,22 @@ namespace AMD
         m_pOpaque = &opaque;
     }
 
+    SHADOWFX_RETURN_CODE AMD_SHADOWFX_DLL_API ShadowFX_GetVersion(uint* major, uint* minor, uint* patch)
+    {
+        AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
+
+        if (major == NULL || minor == NULL || patch == NULL)
+        {
+            return SHADOWFX_RETURN_CODE_INVALID_POINTER;
+        }
+
+        *major = AMD_SHADOWFX_VERSION_MAJOR;
+        *minor = AMD_SHADOWFX_VERSION_MINOR;
+        *patch = AMD_SHADOWFX_VERSION_PATCH;
+
+        return SHADOWFX_RETURN_CODE_SUCCESS;
+    }
+
     SHADOWFX_RETURN_CODE AMD_SHADOWFX_DLL_API ShadowFX_Initialize(const ShadowFX_Desc & desc)
     {
         AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");

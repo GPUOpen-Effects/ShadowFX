@@ -20,8 +20,8 @@
 // THE SOFTWARE.
 //
 
-#ifndef __AMD_SHADOWFX_OPAQUE_H__
-#define __AMD_SHADOWFX_OPAQUE_H__
+#ifndef AMD_SHADOWFX_OPAQUE_H
+#define AMD_SHADOWFX_OPAQUE_H
 
 #include "AMD_LIB.h"
 #include "AMD_ShadowFX.h"
@@ -40,13 +40,13 @@ public:
     AMD_DECLARE_CAMERA_TYPE;
 #pragma warning(pop)
 
-    typedef struct _ShadowsData
+    typedef struct ShadowsData_t
     {
         Camera                                   m_Viewer;
         float2                                   m_Size; // Viewer Depth Buffer Size
         float2                                   m_SizeInv; // Viewer Depth Buffer Size
 
-        typedef struct _LightData
+        typedef struct LightData_t
         {
             Camera                               m_Camera;
             float2                               m_Size;
@@ -104,6 +104,6 @@ public:
     void                                         releaseShaders();
 };
 
-#endif // __AMD_SHADOWFX_OPAQUE_H__
+#endif // AMD_SHADOWFX_OPAQUE_H
 
 }

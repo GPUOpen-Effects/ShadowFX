@@ -20,11 +20,12 @@
 // THE SOFTWARE.
 //
 
-#ifndef __AMD_SHADOWFX_H__
-#define __AMD_SHADOWFX_H__
+#ifndef AMD_SHADOWFX_H
+#define AMD_SHADOWFX_H
 
 #    define AMD_SHADOWFX_VERSION_MAJOR            1
-#    define AMD_SHADOWFX_VERSION_MINOR            3
+#    define AMD_SHADOWFX_VERSION_MINOR            4
+#    define AMD_SHADOWFX_VERSION_PATCH            0
 
 #    ifdef AMD_SHADOWFX_COMPILE_STATIC_LIB
 #        define AMD_SHADOWFX_DLL_API
@@ -45,7 +46,7 @@
 namespace AMD
 {
 // The Return codes
-typedef enum _SHADOWFX_RETURN_CODE
+typedef enum SHADOWFX_RETURN_CODE_t
 {
     SHADOWFX_RETURN_CODE_SUCCESS,
     SHADOWFX_RETURN_CODE_FAIL,
@@ -58,14 +59,14 @@ typedef enum _SHADOWFX_RETURN_CODE
     SHADOWFX_RETURN_CODE_COUNT,
 } SHADOWFX_RETURN_CODE;
 
-typedef enum _SHADOWFX_IMPLEMENTATION
+typedef enum SHADOWFX_IMPLEMENTATION_t
 {
     SHADOWFX_IMPLEMENTATION_PS                   = 0,
     SHADOWFX_IMPLEMENTATION_CS                   = 1, // not available yet
     SHADOWFX_IMPLEMENTATION_COUNT                = 2,
 } SHADOWFX_IMPLEMENTATION;
 
-typedef enum _SHADOWFX_EXECUTION
+typedef enum SHADOWFX_EXECUTION_t
 {
     SHADOWFX_EXECUTION_UNION                     = 0,
     SHADOWFX_EXECUTION_CASCADE                   = 1,
@@ -75,7 +76,7 @@ typedef enum _SHADOWFX_EXECUTION
 } SHADOWFX_EXECUTION;
 
 
-typedef enum _SHADOWFX_FILTERING
+typedef enum SHADOWFX_FILTERING_t
 {
     SHADOWFX_FILTERING_UNIFORM                   = 0,
     SHADOWFX_FILTERING_CONTACT                   = 1,
@@ -85,14 +86,14 @@ typedef enum _SHADOWFX_FILTERING
     SHADOWFX_FILTERING_DEBUG_COUNT               = 1,
 } SHADOWFX_FILTERING;
 
-typedef enum _SHADOWFX_TEXTURE_FETCH
+typedef enum SHADOWFX_TEXTURE_FETCH_t
 {
     SHADOWFX_TEXTURE_FETCH_GATHER4               = 0,
     SHADOWFX_TEXTURE_FETCH_PCF                   = 1,
     SHADOWFX_TEXTURE_FETCH_COUNT                 = 2,
 } SHADOWFX_TEXTURE_FETCH;
 
-typedef enum _SHADOWFX_TEXTURE_TYPE
+typedef enum SHADOWFX_TEXTURE_TYPE_t
 {
     SHADOWFX_TEXTURE_2D                          = 0,
     SHADOWFX_TEXTURE_2D_ARRAY                    = 1,
@@ -100,14 +101,14 @@ typedef enum _SHADOWFX_TEXTURE_TYPE
 } SHADOWFX_TEXTURE_TYPE;
 
 // The TAP types
-typedef enum _SHADOWFX_TAP_TYPE
+typedef enum SHADOWFX_TAP_TYPE_t
 {
     SHADOWFX_TAP_TYPE_FIXED                      = 0,
     SHADOWFX_TAP_TYPE_POISSON                    = 1,
     SHADOWFX_TAP_TYPE_COUNT                      = 2,
 } SHADOWFX_TAP_TYPE;
 
-typedef enum _SHADOWFX_NORMAL_OPTION
+typedef enum SHADOWFX_NORMAL_OPTION_t
 {
     SHADOWFX_NORMAL_OPTION_NONE                  = 0,
     SHADOWFX_NORMAL_OPTION_CALC_FROM_DEPTH       = 1,
@@ -115,7 +116,7 @@ typedef enum _SHADOWFX_NORMAL_OPTION
     SHADOWFX_NORMAL_OPTION_COUNT                 = 3,
 } SHADOWFX_NORMAL_OPTION;
 
-typedef enum _SHADOWFX_FILTER_SIZE
+typedef enum SHADOWFX_FILTER_SIZE_t
 {
     SHADOWFX_FILTER_SIZE_7                       = 7,
     SHADOWFX_FILTER_SIZE_9                       = 9,
@@ -125,7 +126,7 @@ typedef enum _SHADOWFX_FILTER_SIZE
     SHADOWFX_FILTER_SIZE_COUNT                   = 5,
 } SHADOWFX_FILTER_SIZE;
 
-typedef enum _SHADOWFX_OUTPUT_CHANNEL
+typedef enum SHADOWFX_OUTPUT_CHANNEL_t
 {
     SHADOWFX_OUTPUT_CHANNEL_R                    = 1,
     SHADOWFX_OUTPUT_CHANNEL_G                    = 2,
@@ -193,7 +194,7 @@ struct ShadowFX_Desc
     AMD_SHADOWFX_DLL_API                         ShadowFX_Desc();
 
     /**
-    All ShadowFX_Desc objects have a pointer to a single instance of a AOFX_OpaqueDesc.
+    All ShadowFX_Desc objects have a pointer to a single instance of a ShadowFX_OpaqueDesc.
     */
     ShadowFX_OpaqueDesc*                         m_pOpaque;
 
@@ -209,7 +210,13 @@ private:
 extern "C"
 {
     /**
-    Initialize internal data inside AOFX_Desc
+    Get ShadowFX library version number
+    This can be called before ShadowFX_Initialize
+    */
+    AMD_SHADOWFX_DLL_API SHADOWFX_RETURN_CODE ShadowFX_GetVersion     (uint* major, uint* minor, uint* patch);
+
+    /**
+    Initialize internal data inside ShadowFX_Desc
     Calling this function requires setting up m_pDevice member
     */
     AMD_SHADOWFX_DLL_API SHADOWFX_RETURN_CODE ShadowFX_Initialize     (const ShadowFX_Desc & desc);
@@ -259,7 +266,7 @@ extern "C"
     AMD_SHADOWFX_DLL_API SHADOWFX_RETURN_CODE ShadowFX_Render         (const ShadowFX_Desc & desc);
     
     /**
-    Release all internal data used by AOFX_OpaqueDesc
+    Release all internal data used by ShadowFX_OpaqueDesc
     */
     AMD_SHADOWFX_DLL_API SHADOWFX_RETURN_CODE ShadowFX_Release        (const ShadowFX_Desc & desc);
 }
