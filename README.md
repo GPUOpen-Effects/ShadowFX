@@ -13,6 +13,8 @@ The ShadowFX library can also serve as a sandbox for experiments with other shad
 
 The corresponding sample for the ShadowFX library also illustrates how to use the Crossfire&trade; API to transfer resources in a multi-GPU configuration. The Crossfire&trade; API is accessed through the AMD GPU Services (AGS) library. For more information on AGS, including another Crossfire&trade; API sample, visit the [AGS SDK repository on GitHub](https://github.com/GPUOpen-LibrariesAndSDKs/AGS_SDK/).
 
+There is also a new sample focused specifically on the Crossfire&trade; API with detailed documentation. See the `amd_shadowfx_crossfireapi_sample\doc` directory and the "AMD CrossFire guide for Direct3D11 applications" in particular.
+
 ### Prerequisites
 * AMD Radeon&trade; GCN-based GPU (HD 7000 series or newer)
   * Or other DirectX&reg; 11 compatible discrete GPU with Shader Model 5 support 
@@ -20,8 +22,9 @@ The corresponding sample for the ShadowFX library also illustrates how to use th
 * Visual Studio&reg; 2012, Visual Studio&reg; 2013, or Visual Studio&reg; 2015
 
 ### Getting started
-* Visual Studio solutions for VS2012, VS2013, and VS2015 can be found in the `amd_shadowfx_sample\build` directory.
+* Visual Studio solutions for VS2012, VS2013, and VS2015 can be found for the samples in their `build` directories.
 * There are also solutions for just the core library in the `amd_shadowfx\build` directory.
+* Documentation is located in the `amd_shadowfx\doc` directory.
 
 ### Premake
 The Visual Studio solutions and projects in this repo were generated with Premake. If you need to regenerate the Visual Studio files, double-click on `gpuopen_shadowfx_update_vs_files.bat` in the `premake` directory.
