@@ -1,4 +1,4 @@
-dofile ("../../premake/amd_premake_util.lua")
+dofile ("../../../../premake/amd_premake_util.lua")
 
 workspace "DXUTOpt"
    configurations { "Debug", "Release" }
