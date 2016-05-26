@@ -26,14 +26,17 @@
 // Helpers to implement the DXUT related ShaderCache interface in samples.
 //--------------------------------------------------------------------------------------
 
+// DXUT helper code
+#include "DXUT.h"
+#include "DXUTmisc.h"
+#include "DXUTgui.h"
+#include "DXUTCamera.h"
+#include "DXUTSettingsDlg.h"
+#include "SDKmisc.h"
+#include "SDKmesh.h"
+
 #include "..\\inc\ShaderCacheSampleHelper.h"
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Core\\DXUTmisc.h"
-#include "..\\..\\DXUT\\Optional\\DXUTgui.h"
-#include "..\\..\\DXUT\\Optional\\DXUTCamera.h"
-#include "..\\..\\DXUT\\Optional\\DXUTSettingsDlg.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
-#include "..\\..\\DXUT\\Optional\\SDKmesh.h"
+
 #include "ShaderCache.h"
 #include "Sprite.h"
 #include "HUD.h"

@@ -33,12 +33,13 @@
 // SolutionDir\..\src\Shaders
 //--------------------------------------------------------------------------------------
 
+// DXUT helper code
+#include "DXUT.h"
+#include "SDKmisc.h"
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
 #include "ShaderCache.h"
-#include "Process.h"
 
+#include <process.h>
 #include <Shlwapi.h>
 #include <algorithm>
 

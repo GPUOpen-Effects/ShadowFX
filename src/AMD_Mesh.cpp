@@ -20,17 +20,18 @@
 // THE SOFTWARE.
 //
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Core\\DXUTmisc.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
-#include "..\\..\\DXUT\\Optional\\SDKmesh.h"
+// DXUT helper code
+#include "DXUT.h"
+#include "DXUTmisc.h"
+#include "SDKmisc.h"
+#include "SDKmesh.h"
 
 #include "AMD_Mesh.h"
 
 #ifndef AMD_SDK_MINIMAL
-#include "..\\..\\assimp\\include\\assimp\\scene.h"
-#include "..\\..\\assimp\\include\\assimp\\importer.hpp"
-#include "..\\..\\DXUT\\Core\\DDSTextureLoader.h"
+#include "assimp/scene.h"
+#include "assimp/importer.hpp"
+#include "DDSTextureLoader.h"
 #include "crc.h"
 #endif
 

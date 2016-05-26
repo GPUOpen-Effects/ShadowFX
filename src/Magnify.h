@@ -29,6 +29,8 @@
 #ifndef AMD_SDK_MAGNIFY_H
 #define AMD_SDK_MAGNIFY_H
 
+#include "Sprite.h"
+
 namespace AMD
 {
 

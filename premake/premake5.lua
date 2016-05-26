@@ -26,6 +26,7 @@ project "AMD_SDK"
    windowstarget (_AMD_WIN_SDK_VERSION)
 
    files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.hlsl" }
+   includedirs { "../../dxut/Core", "../../dxut/Optional", "../../assimp/include" }
 
    filter "configurations:Debug"
       defines { "WIN32", "_DEBUG", "DEBUG", "PROFILE", "_WINDOWS", "_LIB", "_WIN32_WINNT=0x0601" }

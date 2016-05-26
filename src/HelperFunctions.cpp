@@ -27,9 +27,11 @@
 //--------------------------------------------------------------------------------------
 
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
-#include "..\\..\\DXUT\\Optional\\SDKMesh.h"
+// DXUT helper code
+#include "DXUT.h"
+#include "SDKmisc.h"
+#include "SDKMesh.h"
+
 #include "HelperFunctions.h"
 
 

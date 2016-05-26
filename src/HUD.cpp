@@ -26,13 +26,13 @@
 // Class definition for the AMD standard HUD interface.
 //--------------------------------------------------------------------------------------
 
+// DXUT helper code
+#include "DXUT.h"
+#include "DXUTmisc.h"
+#include "DXUTgui.h"
+#include "SDKmisc.h"
+#include "DDSTextureLoader.h"
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Core\\DXUTmisc.h"
-#include "..\\..\\DXUT\\Optional\\DXUTgui.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
-#include "..\\..\\DXUT\\Core\\DDSTextureLoader.h"
-#include "Sprite.h"
 #include "HUD.h"
 
 using namespace AMD;

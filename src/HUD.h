@@ -28,6 +28,7 @@
 #ifndef AMD_SDK_HUD_H
 #define AMD_SDK_HUD_H
 
+#include "Sprite.h"
 
 namespace AMD
 {

@@ -33,11 +33,11 @@
 #define VENDOR_ID_INTEL     (0x8086)
 
 // DXUT helper code
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Core\\DXUTmisc.h"
-#include "..\\..\\DXUT\\Optional\\DXUTgui.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
-#include "..\\..\\DXUT\\Optional\\SDKMesh.h"
+#include "DXUT.h"
+#include "DXUTmisc.h"
+#include "DXUTgui.h"
+#include "SDKmisc.h"
+#include "SDKMesh.h"
 
 // AMD helper classes and functions
 #include "..\\src\\Timer.h"

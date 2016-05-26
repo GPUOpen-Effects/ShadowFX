@@ -28,8 +28,7 @@
 //--------------------------------------------------------------------------------------
 
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "Sprite.h"
+#include "DXUT.h"
 #include "Magnify.h"
 
 using namespace AMD;

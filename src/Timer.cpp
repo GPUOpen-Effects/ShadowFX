@@ -20,7 +20,7 @@
 // THE SOFTWARE.
 //
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
+#include "DXUT.h"
 #include "Timer.h"
 
 //using namespace AMD;

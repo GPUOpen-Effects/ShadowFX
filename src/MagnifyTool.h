@@ -29,6 +29,8 @@
 #ifndef AMD_SDK_MAGNIFY_TOOL_H
 #define AMD_SDK_MAGNIFY_TOOL_H
 
+#include "Magnify.h"
+
 namespace AMD
 {
 

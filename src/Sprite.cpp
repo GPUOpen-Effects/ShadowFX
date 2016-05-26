@@ -27,10 +27,11 @@
 // given position and scale.
 //--------------------------------------------------------------------------------------
 
+// DXUT helper code
+#include "DXUT.h"
+#include "SDKmisc.h"
+#include "SDKMesh.h"
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Optional\\SDKmisc.h"
-#include "..\\..\\DXUT\\Optional\\SDKMesh.h"
 #include "Sprite.h"
 #include "HelperFunctions.h"
 
