@@ -25,7 +25,7 @@
 
 #    define AMD_SHADOWFX_VERSION_MAJOR            1
 #    define AMD_SHADOWFX_VERSION_MINOR            4
-#    define AMD_SHADOWFX_VERSION_PATCH            0
+#    define AMD_SHADOWFX_VERSION_PATCH            1
 
 #    ifdef AMD_SHADOWFX_COMPILE_STATIC_LIB
 #        define AMD_SHADOWFX_DLL_API
