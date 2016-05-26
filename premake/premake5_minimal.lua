@@ -1,4 +1,4 @@
-dofile ("../../premake/amd_premake_util.lua")
+dofile ("../../../../premake/amd_premake_util.lua")
 
 workspace "AMD_SDK_Minimal"
    configurations { "Debug", "Release" }
