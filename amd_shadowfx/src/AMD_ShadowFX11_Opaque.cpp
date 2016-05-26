@@ -33,7 +33,7 @@
 #   define AMD_DLL_EXPORTS
 #endif
 
-#include "AMD_ShadowFX_Opaque.h"
+#include "AMD_ShadowFX11_Opaque.h"
 #include "AMD_ShadowFX_Precompiled.h"
 
 #pragma warning( disable : 4100 ) // disable unreference formal parameter warnings for /W4 builds

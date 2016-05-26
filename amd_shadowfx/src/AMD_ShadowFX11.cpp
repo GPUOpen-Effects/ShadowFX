@@ -32,7 +32,7 @@
 #   define AMD_DLL_EXPORTS
 #endif
 
-#include "AMD_ShadowFX_Opaque.h"
+#include "AMD_ShadowFX11_Opaque.h"
 
 #pragma warning( disable : 4996 )// disable stdio deprecated
 
