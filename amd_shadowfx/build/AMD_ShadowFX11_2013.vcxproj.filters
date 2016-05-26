@@ -23,7 +23,7 @@
     <ClInclude Include="..\inc\AMD_ShadowFX.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\AMD_ShadowFX_Opaque.h">
+    <ClInclude Include="..\src\AMD_ShadowFX11_Opaque.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\AMD_ShadowFX_Precompiled.h">
@@ -31,10 +31,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\AMD_ShadowFX.cpp">
+    <ClCompile Include="..\src\AMD_ShadowFX11.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AMD_ShadowFX_Opaque.cpp">
+    <ClCompile Include="..\src\AMD_ShadowFX11_Opaque.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

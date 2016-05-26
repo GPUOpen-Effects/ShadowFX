@@ -493,12 +493,12 @@ xcopy "..\lib\VS2012\x64\DLL_Release_MT\$(TargetName).lib"  "..\lib" /H /R /Y &g
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\AMD_ShadowFX.h" />
-    <ClInclude Include="..\src\AMD_ShadowFX_Opaque.h" />
+    <ClInclude Include="..\src\AMD_ShadowFX11_Opaque.h" />
     <ClInclude Include="..\src\AMD_ShadowFX_Precompiled.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\AMD_ShadowFX.cpp" />
-    <ClCompile Include="..\src\AMD_ShadowFX_Opaque.cpp" />
+    <ClCompile Include="..\src\AMD_ShadowFX11.cpp" />
+    <ClCompile Include="..\src\AMD_ShadowFX11_Opaque.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Shaders\AMD_ShadowFX.hlsl" />
