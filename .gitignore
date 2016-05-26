@@ -9,7 +9,7 @@ VS*/
 [Dd]esktop_*/
 ShadowFX11_Sample_Debug_*.*
 ShadowFX11_Sample_Release_*.*
-amd_shadowfx/lib/GPUOpen_ShadowFX_*.*
+amd_shadowfx/lib/GPUOpen_ShadowFX11_*.*
 amd_shadowfx11_sample/bin/
 
 # Visual Studo 2015 cache/options directory
