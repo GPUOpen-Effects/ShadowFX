@@ -26,6 +26,7 @@ project "AMD_SDK_Minimal"
    windowstarget (_AMD_WIN_SDK_VERSION)
 
    files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.hlsl" }
+   includedirs { "../../dxut/Core", "../../dxut/Optional" }
    defines { "AMD_SDK_MINIMAL" }
 
    filter "configurations:Debug"

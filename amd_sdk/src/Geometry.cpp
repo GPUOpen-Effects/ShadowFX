@@ -25,7 +25,7 @@
 //
 // Classes for geometric primitives and collision and visibility testing
 //--------------------------------------------------------------------------------------
-#include "..\\..\\DXUT\\Core\\DXUT.h"
+#include "DXUT.h"
 #include "Geometry.h"
 
 using namespace DirectX;

@@ -25,10 +25,13 @@
 //
 // Helper to render 3d colored lines
 //--------------------------------------------------------------------------------------
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Optional\\SDKMesh.h"
-#include "Geometry.h"
+
+// DXUT helper code
+#include "DXUT.h"
+#include "SDKMesh.h"
+
 #include "LineRender.h"
+#include "Geometry.h"
 #include "HelperFunctions.h"
 
 // for DirectXMath BoundingBox

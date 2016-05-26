@@ -27,11 +27,10 @@
 // DXUT framework, for the Magnify class.
 //--------------------------------------------------------------------------------------
 
+// DXUT helper code
+#include "DXUT.h"
+#include "DXUTgui.h"
 
-#include "..\\..\\DXUT\\Core\\DXUT.h"
-#include "..\\..\\DXUT\\Optional\\DXUTgui.h"
-#include "Sprite.h"
-#include "Magnify.h"
 #include "MagnifyTool.h"
 #include "HUD.h"
 
