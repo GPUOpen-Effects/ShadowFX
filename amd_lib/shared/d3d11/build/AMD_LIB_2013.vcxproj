@@ -140,7 +140,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
@@ -162,7 +162,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
@@ -184,7 +184,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -211,7 +211,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -238,7 +238,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -266,7 +266,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\..\AGS_LIB\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -289,7 +289,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\AGS_LIB\inc\amd_ags.h" />
+    <ClInclude Include="..\..\..\ags_lib\inc\amd_ags.h" />
     <ClInclude Include="..\inc\AMD_LIB.h" />
     <ClInclude Include="..\inc\AMD_Types.h" />
     <ClInclude Include="..\src\AMD_Buffer.h" />

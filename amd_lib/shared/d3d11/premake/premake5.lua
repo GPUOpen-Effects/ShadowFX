@@ -1,4 +1,4 @@
-dofile ("../../premake/amd_premake_util.lua")
+dofile ("../../../../premake/amd_premake_util.lua")
 
 workspace "AMD_LIB"
    configurations { "Debug", "Release", "Release_MT" }
@@ -31,8 +31,8 @@ project "AMD_LIB"
    -- Specify WindowsTargetPlatformVersion here for VS2015
    windowstarget (_AMD_WIN_SDK_VERSION)
 
-   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.inl", "../src/**.hlsl", "../../AGS_LIB/inc/*.h" }
-   includedirs { "../inc", "../../AGS_LIB/inc" }
+   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.inl", "../src/**.hlsl", "../../../ags_lib/inc/*.h" }
+   includedirs { "../inc", "../../../AGS_LIB/inc" }
 
    filter "configurations:Debug"
       defines { "WIN32", "_DEBUG", "_WINDOWS", "_LIB", "_WIN32_WINNT=0x0601" }
