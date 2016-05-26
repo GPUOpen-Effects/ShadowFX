@@ -37,7 +37,7 @@
 #        endif // AMD_DLL_EXPORTS
 #    endif // AMD_COMPILE_STATIC
 
-#    include "AMD_Types.h" 
+#    include "AMD_Types.h"
 
 #   if defined(DEBUG) || defined(_DEBUG)
 #       define AMD_SHADOWFX_DEBUG                 1
@@ -182,9 +182,9 @@ struct ShadowFX_Desc
     ID3D11ShaderResourceView*                    m_pShadowSRV; // input shadow map
     ID3D11ShaderResourceView*                    m_pNormalSRV; // input main viewer normal data (for Deferred Renderers)
 
-    ID3D11RenderTargetView*                      m_pOutputRTV; // output shadow mask 
+    ID3D11RenderTargetView*                      m_pOutputRTV; // output shadow mask
 
-    ID3D11DepthStencilState*                     m_pOutputDSS; // output dss can specify stencil test 
+    ID3D11DepthStencilState*                     m_pOutputDSS; // output dss can specify stencil test
     ID3D11DepthStencilView*                      m_pOutputDSV; // output depth stencil view (used if dss != null) it should have stencil data
     unsigned int                                 m_ReferenceDSS; // stencil reference value (used if dss != null)
 
@@ -244,27 +244,27 @@ extern "C"
     * m_Execution - lights can be arranged either:
         ** as a union of shadow casters (each shadowed pixel is tested against each shadow caster)
         ** as cascades for a single directional light (each shadowed pixel is tested until it falls into a single cascade)
-        ** as a cube map light (each shadowed pixel selects the correct shadow cube face and only uses that for filtering)                                        
+        ** as a cube map light (each shadowed pixel selects the correct shadow cube face and only uses that for filtering)
     * m_Implementation - alternate between compute shader and pixel shader implementations (CS is under development)
     * m_TextureType - shadow map(s) can be stored in either a texture 2d (atlas) or a texture 2d array
     * m_TextureFetch - alternate between shader permutations that use Gather 4 or PCF instructions
     * m_Filtering - alternate between uniform and contact hardening shadows;
-    * m_TapType - alternate between sampling all texels inside the filtering kernel or fetch poisson distributed samples (less samples) 
+    * m_TapType - alternate between sampling all texels inside the filtering kernel or fetch poisson distributed samples (less samples)
     * m_FilterSize - select filter size from 7x7 to 15x15
-    * m_NormalOption - each visible pixel on the screen is first reprojected in World Space. At this point it can be displaced along the normal 
+    * m_NormalOption - each visible pixel on the screen is first reprojected in World Space. At this point it can be displaced along the normal
                        to help reduce incorrect self shadowing. Normal can either be calculated from depth buffer or fetched from SRV
-    * m_pNormalSRV - set to a valid SRV with normal gbuffer layer to use normal option READ_FROM_SRV 
-    
-    * m_pOutputDSS - set to a valid depth stencil state to enable performance optimizations. 
+    * m_pNormalSRV - set to a valid SRV with normal gbuffer layer to use normal option READ_FROM_SRV
+
+    * m_pOutputDSS - set to a valid depth stencil state to enable performance optimizations.
                      For example this can be used to enable stencil testing to reduce the number of filtered pixels on the screen
-    * m_pOutputDSV - set to a valid depth stencil view to use in conjunction with m_pOutputDSS 
+    * m_pOutputDSV - set to a valid depth stencil view to use in conjunction with m_pOutputDSS
     * m_ReferenceDSS - stencil reference value (used if m_pOutputDSS != NULL)
     * m_OutputChannels - set output write mask
     * m_pOutputBS - set the whole blend state (will override m_OutputChannels)
-    
+
     */
     AMD_SHADOWFX_DLL_API SHADOWFX_RETURN_CODE ShadowFX_Render         (const ShadowFX_Desc & desc);
-    
+
     /**
     Release all internal data used by ShadowFX_OpaqueDesc
     */
