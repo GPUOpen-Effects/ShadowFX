@@ -66,7 +66,7 @@ HRESULT HUD::OnCreateDevice( ID3D11Device* pd3dDevice )
 
     m_Sprite.OnCreateDevice( pd3dDevice );
 
-    V_RETURN( DXUTFindDXSDKMediaFileCch( str, MAX_PATH, L"..\\..\\AMD_SDK\\media\\AMD.dds" ) );
+    V_RETURN( DXUTFindDXSDKMediaFileCch( str, MAX_PATH, L"..\\..\\framework\\d3d11\\amd_sdk\\media\\AMD.dds" ) );
     DirectX::CreateDDSTextureFromFile( pd3dDevice, str, nullptr, &m_pLogoSRV );
     DXUT_SetDebugName( m_pLogoSRV, "AMD.dds" );
 
