@@ -220,7 +220,7 @@ ShaderCache::ShaderCache( const SHADER_AUTO_RECOMPILE_TYPE i_keAutoRecompileTouc
     PathCombine( m_wsShaderSourceDir, m_wsWorkingDir, L"..\\src\\Shaders" );
     swprintf_s( m_wsUnicodeShaderSourceDir, L"%s%s", L"\\\\?\\", m_wsShaderSourceDir );
 
-    PathCombine( m_wsAmdSdkDir, m_wsWorkingDir, L"..\\..\\AMD_SDK" );
+    PathCombine( m_wsAmdSdkDir, m_wsWorkingDir, L"..\\..\\framework\\d3d11\\amd_sdk" );
 
     swprintf_s( m_wsBatchWorkingDir, L"%s", m_wsUnicodeWorkingDir );
 

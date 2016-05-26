@@ -121,7 +121,7 @@ HRESULT Sprite::OnCreateDevice( ID3D11Device* pd3dDevice )
     ID3DBlob* pBlob = NULL;
 
     // VS 1
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "VsSprite", "vs_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "VsSprite", "vs_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreateVertexShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteVS );
     assert( D3D_OK == hr );
@@ -137,7 +137,7 @@ HRESULT Sprite::OnCreateDevice( ID3D11Device* pd3dDevice )
     SAFE_RELEASE( pBlob );
 
     // VS 2
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "VsSpriteBorder", "vs_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "VsSpriteBorder", "vs_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreateVertexShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteBorderVS );
     assert( D3D_OK == hr );
@@ -152,47 +152,47 @@ HRESULT Sprite::OnCreateDevice( ID3D11Device* pd3dDevice )
     SAFE_RELEASE( pBlob );
 
     // PS 1
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSprite", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSprite", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpritePS );
     assert( D3D_OK == hr );
     SAFE_RELEASE( pBlob );
 
     // PS 2
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSpriteMS", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSpriteMS", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteMSPS );
     assert( D3D_OK == hr );
     SAFE_RELEASE( pBlob );
 
     // PS 3
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSpriteAsDepth", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSpriteAsDepth", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteAsDepthPS );
     assert( D3D_OK == hr );
     SAFE_RELEASE( pBlob );
 
     // PS 4
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSpriteAsDepthMS", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSpriteAsDepthMS", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteAsDepthMSPS );
     assert( D3D_OK == hr );
     SAFE_RELEASE( pBlob );
 
     // PS 5
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSpriteBorder", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSpriteBorder", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteBorderPS );
     assert( D3D_OK == hr );
     SAFE_RELEASE( pBlob );
 
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSpriteUntextured", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSpriteUntextured", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteUntexturedPS );
     assert( D3D_OK == hr );
     SAFE_RELEASE( pBlob );
 
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Sprite.hlsl", "PsSpriteVolume", "ps_4_0", &pBlob, NULL );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Sprite.hlsl", "PsSpriteVolume", "ps_4_0", &pBlob, NULL );
     assert( D3D_OK == hr );
     hr = pd3dDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pSpriteVolumePS );
     assert( D3D_OK == hr );

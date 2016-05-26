@@ -69,7 +69,7 @@ void AMD::LineRender::OnCreateDevice( ID3D11Device* pDevice, ID3D11DeviceContext
     // Create shaders
     ID3DBlob* pBlob = 0;
 
-    HRESULT hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Line.hlsl", "LineVS", "vs_4_0", &pBlob, 0 );
+    HRESULT hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Line.hlsl", "LineVS", "vs_4_0", &pBlob, 0 );
     assert( hr == S_OK );
     hr = pDevice->CreateVertexShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), 0, &m_pVertexShader );
     assert( hr == S_OK );
@@ -83,7 +83,7 @@ void AMD::LineRender::OnCreateDevice( ID3D11Device* pDevice, ID3D11DeviceContext
     assert( hr == S_OK );
     SAFE_RELEASE( pBlob );
 
-    hr = AMD::CompileShaderFromFile( L"..\\..\\AMD_SDK\\src\\Shaders\\Line.hlsl", "LinePS", "ps_4_0", &pBlob, 0 );
+    hr = AMD::CompileShaderFromFile( L"..\\..\\framework\\d3d11\\amd_sdk\\src\\Shaders\\Line.hlsl", "LinePS", "ps_4_0", &pBlob, 0 );
     assert( hr == S_OK );
     hr = pDevice->CreatePixelShader( pBlob->GetBufferPointer(), pBlob->GetBufferSize(), 0, &m_pPixelShader );
     assert( hr == S_OK );
