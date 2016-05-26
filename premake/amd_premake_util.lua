@@ -50,8 +50,8 @@ function amdSamplePostbuildCommands(copyAgs, copyAssimp)
    -- copy d3dcompiler_47.dll from the 8.1 SDK to the local bin directory
    table.insert(commands, _AMD_COPY_WIN_8_1_SDK_REDIST_TO_BIN)
    -- copy the library DLLs to the local bin directory
-   table.insert(commands, "if exist \"..\\..\\AMD_%{_AMD_LIBRARY_NAME}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64d.dll\" xcopy \"..\\..\\AMD_%{_AMD_LIBRARY_NAME}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64d.dll\"  \"..\\bin\" /H /R /Y > nul")
-   table.insert(commands, "if exist \"..\\..\\AMD_%{_AMD_LIBRARY_NAME}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64.dll\"  xcopy \"..\\..\\AMD_%{_AMD_LIBRARY_NAME}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64.dll\"   \"..\\bin\" /H /R /Y > nul")
+   table.insert(commands, "if exist \"..\\..\\AMD_%{_AMD_LIBRARY_NAME_GENERAL}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64d.dll\" xcopy \"..\\..\\AMD_%{_AMD_LIBRARY_NAME_GENERAL}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64d.dll\"  \"..\\bin\" /H /R /Y > nul")
+   table.insert(commands, "if exist \"..\\..\\AMD_%{_AMD_LIBRARY_NAME_GENERAL}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64.dll\"  xcopy \"..\\..\\AMD_%{_AMD_LIBRARY_NAME_GENERAL}\\lib\\%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64.dll\"   \"..\\bin\" /H /R /Y > nul")
    if doCopyAgs then
       -- copy the AGS DLLs to the local bin directory
       table.insert(commands, _AMD_COPY_AGS_RLS_DLL_TO_BIN)

@@ -4,12 +4,12 @@ _AMD_LIBRARY_NAME_ALL_CAPS = string.upper(_AMD_LIBRARY_NAME)
 -- Set _AMD_LIBRARY_NAME before including amd_premake_util.lua
 dofile ("../../premake/amd_premake_util.lua")
 
-workspace ("AMD_" .. _AMD_LIBRARY_NAME)
+workspace ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
    configurations { "DLL_Debug", "DLL_Release", "Lib_Debug", "Lib_Release", "DLL_Release_MT" }
    platforms { "Win32", "x64" }
    location "../build"
-   filename ("AMD_" .. _AMD_LIBRARY_NAME .. _AMD_VS_SUFFIX)
-   startproject ("AMD_" .. _AMD_LIBRARY_NAME)
+   filename ("AMD_" .. _AMD_LIBRARY_NAME .. "11" .. _AMD_VS_SUFFIX)
+   startproject ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
 
    filter "platforms:Win32"
       system "Windows"
@@ -32,10 +32,10 @@ externalproject "AMD_LIB"
       ["Lib_Release"] = "Release",
       ["DLL_Release_MT"] = "Release_MT" }
 
-project ("AMD_" .. _AMD_LIBRARY_NAME)
+project ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
    language "C++"
    location "../build"
-   filename ("AMD_" .. _AMD_LIBRARY_NAME .. _AMD_VS_SUFFIX)
+   filename ("AMD_" .. _AMD_LIBRARY_NAME .. "11" .. _AMD_VS_SUFFIX)
    uuid "21473363-E6A1-4460-8454-0F4C411B5B3D"
    targetdir "../lib/%{_AMD_LIBRARY_DIR_LAYOUT}"
    objdir "../build/%{_AMD_LIBRARY_DIR_LAYOUT}"
@@ -87,7 +87,7 @@ project ("AMD_" .. _AMD_LIBRARY_NAME)
       buildoptions { "/EHsc" }
 
    filter "platforms:Win32"
-      targetname "%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x86"
+      targetname "%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}11_x86"
 
    filter "platforms:x64"
-      targetname "%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}_x64"
+      targetname "%{_AMD_LIBRARY_PREFIX}%{_AMD_LIBRARY_NAME}11_x64"

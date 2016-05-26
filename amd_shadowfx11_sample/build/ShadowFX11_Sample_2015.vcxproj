@@ -14,8 +14,8 @@
     <ProjectGuid>{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ShadowFX_Sample</RootNamespace>
-    <ProjectName>ShadowFX_Sample</ProjectName>
+    <RootNamespace>ShadowFX11_Sample</RootNamespace>
+    <ProjectName>ShadowFX11_Sample</ProjectName>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -46,14 +46,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\</OutDir>
     <IntDir>Desktop_2015\x64\Debug\</IntDir>
-    <TargetName>ShadowFX_Sample_Debug_2015</TargetName>
+    <TargetName>ShadowFX11_Sample_Debug_2015</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\</OutDir>
     <IntDir>Desktop_2015\x64\Release\</IntDir>
-    <TargetName>ShadowFX_Sample_Release_2015</TargetName>
+    <TargetName>ShadowFX11_Sample_Release_2015</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -83,8 +83,8 @@
     </Manifest>
     <PostBuildEvent>
       <Command>if not exist "..\bin\d3dcompiler_47.dll" if exist "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" xcopy "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" "..\bin" /H /R /Y &gt; nul
-if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64d.dll" xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64d.dll"  "..\bin" /H /R /Y &gt; nul
-if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64.dll"  xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64.dll"   "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64d.dll" xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64d.dll"  "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64.dll"  xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64.dll"   "..\bin" /H /R /Y &gt; nul
 xcopy "..\..\amd_lib\ags_lib\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</Command>
       <Message>Copying dependencies...</Message>
     </PostBuildEvent>
@@ -122,8 +122,8 @@ xcopy "..\..\amd_lib\ags_lib\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</C
     </Manifest>
     <PostBuildEvent>
       <Command>if not exist "..\bin\d3dcompiler_47.dll" if exist "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" xcopy "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" "..\bin" /H /R /Y &gt; nul
-if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64d.dll" xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64d.dll"  "..\bin" /H /R /Y &gt; nul
-if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64.dll"  xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX_x64.dll"   "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64d.dll" xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64d.dll"  "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64.dll"  xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX11_x64.dll"   "..\bin" /H /R /Y &gt; nul
 xcopy "..\..\amd_lib\ags_lib\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</Command>
       <Message>Copying dependencies...</Message>
     </PostBuildEvent>
@@ -146,7 +146,7 @@ xcopy "..\..\amd_lib\ags_lib\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</C
     <ProjectReference Include="..\..\amd_lib\shared\d3d11\build\AMD_LIB_2015.vcxproj">
       <Project>{0D2AEA47-7909-69E3-8221-F4B9EE7FCF44}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\AMD_ShadowFX\build\AMD_ShadowFX_2015.vcxproj">
+    <ProjectReference Include="..\..\AMD_ShadowFX\build\AMD_ShadowFX11_2015.vcxproj">
       <Project>{21473363-E6A1-4460-8454-0F4C411B5B3D}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\framework\d3d11\dxut\Optional\DXUTOpt_2015.vcxproj">

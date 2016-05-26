@@ -38,6 +38,7 @@ cd ..\..\
 
 :: sample, capture_viewer, etc.
 for /f %%a in ('dir /a:d /b %arg1%_* 2^>nul') do call :createvsfilesforsamples %%a
+for /f %%a in ('dir /a:d /b %arg1%11_* 2^>nul') do call :createvsfilesforsamples %%a
 
 cd "%startdir%"
 
