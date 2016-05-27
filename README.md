@@ -1,6 +1,6 @@
 # AMD ShadowFX
 
-<img src="amd_shadowfx_sample/media/Thumbnail.png" width="480" height="285" />
+![AMD TressFX](http://gpuopen-effects.github.io/media/effects/shadowfx_thumbnail.png)
 
 The ShadowFX library provides a scalable and GCN-optimized solution for deferred shadow filtering. Currently the library supports uniform and contact hardening shadow (CHS) kernels.
 
