@@ -62,14 +62,14 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -96,7 +96,7 @@ xcopy "..\..\amd_lib\ags_lib\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</C
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;NDEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -107,7 +107,7 @@ xcopy "..\..\amd_lib\ags_lib\lib\amd_ags_x64.dll"  "..\bin" /H /R /Y &gt; nul</C
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;NDEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\ResourceFiles;..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;..\..\framework\d3d11\amd_sdk\inc;..\..\amd_lib\ags_lib\inc;..\..\framework\d3d11\dxut\Core;..\..\framework\d3d11\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

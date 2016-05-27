@@ -73,7 +73,7 @@ project (_AMD_LIBRARY_NAME .. "_Sample")
    postbuildmessage "Copying dependencies..."
 
    files { "../src/**.h", "../src/**.cpp", "../src/**.rc", "../src/**.manifest", "../src/**.hlsl", "../src/**.inl" }
-   includedirs { "../src/ResourceFiles", "../../AMD_%{_AMD_LIBRARY_NAME_GENERAL}/inc", "../../amd_lib/shared/d3d11/inc", "../../framework/d3d11/amd_sdk/inc", "../../amd_lib/ags_lib/inc", "../../framework/d3d11/dxut/Core", "../../framework/d3d11/dxut/Optional" }
+   includedirs { "../src/ResourceFiles", "../../AMD_%{_AMD_LIBRARY_NAME_GENERAL}/inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/d3d11/inc", "../../framework/d3d11/amd_sdk/inc", "../../amd_lib/ags_lib/inc", "../../framework/d3d11/dxut/Core", "../../framework/d3d11/dxut/Optional" }
    libdirs { "../../amd_lib/ags_lib/lib" }
    links { "AMD_%{_AMD_LIBRARY_NAME}", "AMD_LIB", "AMD_SDK_Minimal", "DXUT", "DXUTOpt", "amd_ags_%{cfg.platform}", "d3dcompiler", "dxguid", "winmm", "comctl32", "Usp10", "Shlwapi" }
    defines { "AMD_%{_AMD_LIBRARY_NAME_GENERAL_ALL_CAPS}_COMPILE_DYNAMIC_LIB=1" }
