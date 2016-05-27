@@ -44,10 +44,10 @@ The default SDK for a particular version of Visual Studio (for 2012 or higher) i
 For Visual Studio 2015, this version of Premake adds the `WindowsTargetPlatformVersion` element to the project file to specify which version of the Windows SDK will be used. To change `WindowsTargetPlatformVersion` for Visual Studio 2015, change the value for `_AMD_WIN_SDK_VERSION` (for DirectX 11) or `_AMD_WIN_SDK_VERSION_FOR_D3D12` (for DirectX 12) in `premake\amd_premake_util.lua` and regenerate the Visual Studio files.
 
 ### Third-Party Software
-* DXUT is distributed under the terms of the MIT License. See `dxut\MIT.txt`.
+* DXUT is distributed under the terms of the MIT License. See `framework\d3d11\dxut\MIT.txt`.
 * Premake is distributed under the terms of the BSD License. See `premake\LICENSE.txt`.
 
-DXUT is only used by the sample, not the core library. Only first-party software (specifically `ags_lib`, `amd_shadowfx`, and `amd_lib`) is needed to build the ShadowFX library.
+DXUT and Assimp are only used by the samples, not the core library. Only first-party software (specifically `amd_shadowfx` and `amd_lib`) is needed to build the ShadowFX library.
 
 ### Attribution
 * AMD, the AMD Arrow logo, Radeon, Crossfire, and combinations thereof are either registered trademarks or trademarks of Advanced Micro Devices, Inc. in the United States and/or other countries.
