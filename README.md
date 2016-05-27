@@ -31,6 +31,9 @@ The ShadowFX library can also serve as a sandbox for experiments with other shad
 * There are also solutions for just the core library in the `amd_shadowfx\build` directory.
 * Documentation is located in the `amd_shadowfx\doc` directory.
 
+### Learn More
+* [Related blog posts on GPUOpen](http://gpuopen.com/tag/shadowfx/)
+
 ### Premake
 The Visual Studio solutions and projects in this repo were generated with Premake. If you need to regenerate the Visual Studio files, double-click on `gpuopen_shadowfx_update_vs_files.bat` in the `premake` directory.
 
