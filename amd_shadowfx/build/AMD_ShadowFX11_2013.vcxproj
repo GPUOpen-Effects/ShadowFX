@@ -226,7 +226,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_USRDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
@@ -252,7 +252,7 @@ xcopy "..\lib\VS2013\Win32\DLL_Debug\$(TargetName).lib"  "..\lib" /H /R /Y &gt; 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_USRDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
@@ -278,7 +278,7 @@ xcopy "..\lib\VS2013\x64\DLL_Debug\$(TargetName).lib"  "..\lib" /H /R /Y &gt; nu
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -309,7 +309,7 @@ xcopy "..\lib\VS2013\Win32\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y &gt
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -340,7 +340,7 @@ xcopy "..\lib\VS2013\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y &gt; 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
@@ -361,7 +361,7 @@ xcopy "..\lib\VS2013\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y &gt; 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
@@ -382,7 +382,7 @@ xcopy "..\lib\VS2013\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y &gt; 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -408,7 +408,7 @@ xcopy "..\lib\VS2013\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y &gt; 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -434,7 +434,7 @@ xcopy "..\lib\VS2013\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y &gt; 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -466,7 +466,7 @@ xcopy "..\lib\VS2013\Win32\DLL_Release_MT\$(TargetName).lib"  "..\lib" /H /R /Y 
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d11\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
