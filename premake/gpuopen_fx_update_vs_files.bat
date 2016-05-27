@@ -25,7 +25,7 @@ cd ..\..\dxut\Core
 call :createvsfilesincluding2010
 
 echo --- dxut optional ---
-cd ..\..\..\..\framework\d3d11\dxut\Optional
+cd ..\Optional
 call :createvsfilesincluding2010
 
 echo --- dx12u ---
