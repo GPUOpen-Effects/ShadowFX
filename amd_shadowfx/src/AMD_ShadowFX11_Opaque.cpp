@@ -318,6 +318,7 @@ SHADOWFX_RETURN_CODE ShadowFX_OpaqueDesc::render(const ShadowFX_Desc & desc)
         memcpy(&m_ShadowsData.m_Light[i].m_NormalOffsetScale, &desc.m_NormalOffsetScale[i], sizeof(m_ShadowsData.m_Light[i].m_NormalOffsetScale));
 
         m_ShadowsData.m_Light[i].m_ArraySlice = desc.m_ArraySlice[i];
+        m_ShadowsData.m_Light[i].m_Weight.x = desc.m_Weight[i];
     }
 
     D3D11_MAPPED_SUBRESOURCE MappedResource;

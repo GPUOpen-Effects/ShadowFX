@@ -53,6 +53,8 @@ public:
             float2                               m_SizeInv;
             float4                               m_Region;
 
+            float4                               m_Weight;
+
             float                                m_SunArea;
             float                                m_DepthTestOffset;
             float                                m_NormalOffsetScale;
@@ -61,7 +63,7 @@ public:
 
         LightData                                m_Light[ShadowFX_Desc::m_MaxLightCount];
         uint                                     m_ActiveLightCount;
-        uint                                     _pad[3];
+        float3                                   pad3;
     } ShadowsData;
 
     ShadowsData                                  m_ShadowsData;

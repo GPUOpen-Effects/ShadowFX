@@ -64,6 +64,7 @@
 #define AMD_SHADOWFX_EXECUTION_UNION                        0
 #define AMD_SHADOWFX_EXECUTION_CASCADE                      1
 #define AMD_SHADOWFX_EXECUTION_CUBE                         2
+#define SHADOWFX_EXECUTION_WEIGHTED_AVG                     3
 #ifndef AMD_SHADOWFX_EXECUTION                              
 # define AMD_SHADOWFX_EXECUTION                             AMD_SHADOWFX_EXECUTION_UNION
 #endif
@@ -131,6 +132,8 @@ struct ShadowsLightData
   float2                                                   m_SizeInv;
   float4                                                   m_Region;
 
+  float4                                                   m_Weight;
+
   float                                                    m_SunArea;
   float                                                    m_DepthTestOffset;
   float                                                    m_NormalOffsetScale;
@@ -145,7 +148,7 @@ struct ShadowsData
 
   ShadowsLightData                                         m_Light[AMD_SHADOWFX_ACTIVE_LIGHT_COUNT];
   uint                                                     m_ActiveLightCount;
-  uint                                                     _pad[3];
+  float3                                                   pad3;
 };
 
 Texture2D<float>                                           g_t2dDepth              : register( t0 );
@@ -352,8 +355,14 @@ float uniformFixedGather4( float3 shadowSpaceCoord, ShadowsLightData lightData )
 float uniformFixedPCF( float3 shadowSpaceCoord, ShadowsLightData lightData )
 {
   float4 shadowRegion;
+#if (AMD_SHADOWFX_TEXTURE_TYPE == 1)
+  shadowRegion.xy = float2(1, 1);
+  shadowRegion.zw = float2(0, 0);
+#else
   shadowRegion.xy = lightData.m_Region.zw - lightData.m_Region.xy;
   shadowRegion.zw = lightData.m_Region.xy;
+#endif
+
   float3 shadowUVZ = float3(shadowSpaceCoord.xy * shadowRegion.xy + shadowRegion.zw, shadowSpaceCoord.z - lightData.m_DepthTestOffset);
 
   float  accumulatedShadow = 0.0f;

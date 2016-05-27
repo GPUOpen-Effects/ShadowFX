@@ -78,8 +78,9 @@ typedef enum SHADOWFX_EXECUTION_t
     SHADOWFX_EXECUTION_UNION                     = 0,
     SHADOWFX_EXECUTION_CASCADE                   = 1,
     SHADOWFX_EXECUTION_CUBE                      = 2,
+    SHADOWFX_EXECUTION_WEIGHTED_AVG              = 3,
 
-    SHADOWFX_EXECUTION_COUNT                     = 3,
+    SHADOWFX_EXECUTION_COUNT                     = 4,
 } SHADOWFX_EXECUTION;
 
 

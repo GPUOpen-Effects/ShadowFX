@@ -22,7 +22,7 @@
 
 #include "AMD_ShadowFX_Common.hlsl"
 
-#include "../../../AMD_LIB/src/Shaders/AMD_FullscreenPass.hlsl"
+#include "../../../amd_lib/shared/d3d11/src/Shaders/AMD_FullscreenPass.hlsl"
 
 //--------------------------------------------------------------------------------------
 // SHADOW MAP FILTERING
@@ -69,10 +69,15 @@ PS_ShadowMaskOutput shadowFiltering( PS_FullscreenInput I )
   float4 world_space_position = calculateWorldSpacePosition(clip_space_position);
 
   bool continueShadow = true;
-  float shadow = 1.0f;
   uint active = 0;
+
+#if (AMD_SHADOWFX_EXECUTION == SHADOWFX_EXECUTION_WEIGHTED_AVG)
+  float shadow = 0.0f;
+#else
+  float shadow = 1.0f;
+#endif
   
-#if (AMD_SHADOWFX_EXECUTION == AMD_SHADOWFX_EXECUTION_UNION || AMD_SHADOWFX_EXECUTION == AMD_SHADOWFX_EXECUTION_CASCADE)
+#if (AMD_SHADOWFX_EXECUTION == AMD_SHADOWFX_EXECUTION_UNION || AMD_SHADOWFX_EXECUTION == AMD_SHADOWFX_EXECUTION_CASCADE || AMD_SHADOWFX_EXECUTION == SHADOWFX_EXECUTION_WEIGHTED_AVG)
   for (active = 0; (active < g_cbShadowsData.m_ActiveLightCount) && continueShadow; active++)
 #endif
   {
@@ -145,8 +150,11 @@ PS_ShadowMaskOutput shadowFiltering( PS_FullscreenInput I )
 
     }
 
+#if (AMD_SHADOWFX_EXECUTION == SHADOWFX_EXECUTION_WEIGHTED_AVG)
+    shadow += filteredShadow * g_cbShadowsData.m_Light[active].m_Weight.x; 
+#else
     shadow = min(shadow, filteredShadow);
-
+#endif
   }
 
   O.shadow = shadow.xxxx;
