@@ -52,8 +52,6 @@ ShadowFX_OpaqueDesc::ShadowFX_OpaqueDesc(const ShadowFX_Desc & desc)
     , m_rsNoCulling(NULL)
     , m_dssEqualToRef(NULL)
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     for (int execution = 0; execution < SHADOWFX_EXECUTION_COUNT; execution++)
     {
         for (int filter = 0; filter < SHADOWFX_FILTERING_COUNT; filter++)
@@ -90,15 +88,11 @@ ShadowFX_OpaqueDesc::ShadowFX_OpaqueDesc(const ShadowFX_Desc & desc)
 
 ShadowFX_OpaqueDesc::~ShadowFX_OpaqueDesc()
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     release();
 }
 
 SHADOWFX_RETURN_CODE ShadowFX_OpaqueDesc::cbInitialize(const ShadowFX_Desc & desc)
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     HRESULT hr = S_OK;
 
     CD3D11_DEFAULT d3d11Default;
@@ -179,8 +173,6 @@ SHADOWFX_RETURN_CODE ShadowFX_OpaqueDesc::cbInitialize(const ShadowFX_Desc & des
 
 SHADOWFX_RETURN_CODE ShadowFX_OpaqueDesc::createShaders(const ShadowFX_Desc & desc)
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     HRESULT hr = S_OK;
 
     releaseShaders();
@@ -239,8 +231,6 @@ SHADOWFX_RETURN_CODE ShadowFX_OpaqueDesc::createShaders(const ShadowFX_Desc & de
 
 void ShadowFX_OpaqueDesc::release()
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     releaseShaders();
 
     AMD_SAFE_RELEASE(m_cbShadowsData);
@@ -258,8 +248,6 @@ void ShadowFX_OpaqueDesc::release()
 
 void    ShadowFX_OpaqueDesc::releaseShaders()
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     AMD_SAFE_RELEASE(m_vsFullscreen);
 
     for (int execution = 0; execution < SHADOWFX_EXECUTION_COUNT; execution++)
@@ -298,8 +286,6 @@ void    ShadowFX_OpaqueDesc::releaseShaders()
 
 SHADOWFX_RETURN_CODE ShadowFX_OpaqueDesc::render(const ShadowFX_Desc & desc)
 {
-    AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
     if (desc.m_DepthSize.x == 0 ||
         desc.m_DepthSize.y == 0)
     {

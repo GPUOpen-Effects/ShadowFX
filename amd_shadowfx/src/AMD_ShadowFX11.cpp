@@ -62,16 +62,12 @@ namespace AMD
         , m_ReferenceDSS(0)
         , m_ActiveLightCount(0)
     {
-        AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
         static ShadowFX_OpaqueDesc opaque(*this);
         m_pOpaque = &opaque;
     }
 
     SHADOWFX_RETURN_CODE AMD_SHADOWFX_DLL_API ShadowFX_GetVersion(uint* major, uint* minor, uint* patch)
     {
-        AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
         if (major == NULL || minor == NULL || patch == NULL)
         {
             return SHADOWFX_RETURN_CODE_INVALID_POINTER;
@@ -86,8 +82,6 @@ namespace AMD
 
     SHADOWFX_RETURN_CODE AMD_SHADOWFX_DLL_API ShadowFX_Initialize(const ShadowFX_Desc & desc)
     {
-        AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
         if (NULL == desc.m_pDevice)
         {
             return SHADOWFX_RETURN_CODE_INVALID_DEVICE;
@@ -103,8 +97,6 @@ namespace AMD
 
     SHADOWFX_RETURN_CODE AMD_SHADOWFX_DLL_API ShadowFX_Release(const ShadowFX_Desc & desc)
     {
-        AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-
         desc.m_pOpaque->release();
 
         return SHADOWFX_RETURN_CODE_SUCCESS;
@@ -112,8 +104,6 @@ namespace AMD
 
     SHADOWFX_RETURN_CODE AMD_SHADOWFX_DLL_API AMD::ShadowFX_Render(const ShadowFX_Desc & desc)
     {
-        AMD_OUTPUT_DEBUG_STRING("CALL: " AMD_FUNCTION_NAME "\n");
-        
         if (NULL == desc.m_pContext)
         {
             return SHADOWFX_RETURN_CODE_INVALID_DEVICE_CONTEXT;
