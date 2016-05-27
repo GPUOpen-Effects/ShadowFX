@@ -21,24 +21,34 @@ call :createvsfilesincluding2010
 call :createvsfileswithminimaldependencies
 
 echo --- dxut core ---
-cd ..\..\..\..\framework\d3d11\dxut\Core
+cd ..\..\dxut\Core
 call :createvsfilesincluding2010
 
 echo --- dxut optional ---
 cd ..\..\..\..\framework\d3d11\dxut\Optional
 call :createvsfilesincluding2010
+
+echo --- dx12u ---
+cd ..\..\..\d3d12\dx12u\premake
+call :createvsfiles12_b
+
+echo --- gu ---
+cd ..\..\gu\premake
+call :createvsfiles12_b
 cd ..\..\..\..\
-:: we don't keep solution files for amd_lib, amd_sdk, or dxut
+:: we don't keep solution files for amd_lib, amd_sdk, dxut, etc.
 call :cleanslnfiles
 
 echo --- %arg1% ---
 cd %arg1%\premake
 call :createvsfiles
+call :createvsfiles12_a
 cd ..\..\
 
 :: sample, capture_viewer, etc.
 for /f %%a in ('dir /a:d /b %arg1%_* 2^>nul') do call :createvsfilesforsamples %%a
 for /f %%a in ('dir /a:d /b %arg1%11_* 2^>nul') do call :createvsfilesforsamples %%a
+for /f %%a in ('dir /a:d /b %arg1%12_* 2^>nul') do call :createvsfilesforsamples12 %%a
 
 cd "%startdir%"
 
@@ -58,11 +68,31 @@ if exist %1\premake (
 )
 goto :EOF
 
+:: sample, capture_viewer, etc.
+:createvsfilesforsamples12
+if exist %1\premake (
+    echo --- %1 ---
+    cd %1\premake
+    ..\..\premake\premake5.exe vs2015
+    cd ..\..\
+)
+goto :EOF
+
 :: run premake for vs2012, vs2013, and vs2015
 :createvsfiles
 ..\..\premake\premake5.exe vs2012
 ..\..\premake\premake5.exe vs2013
 ..\..\premake\premake5.exe vs2015
+goto :EOF
+
+:: run premake for vs2015 for d3d12
+:createvsfiles12_a
+..\..\premake\premake5.exe --file=premake5_d3d12.lua vs2015
+goto :EOF
+
+:: run premake for vs2015 for d3d12
+:createvsfiles12_b
+..\..\..\..\premake\premake5.exe vs2015
 goto :EOF
 
 :: run premake for vs2010, vs2012, vs2013, and vs2015
@@ -112,6 +142,9 @@ del /f /q framework\d3d11\dxut\Optional\DXUTOpt_2010.sln
 del /f /q framework\d3d11\dxut\Optional\DXUTOpt_2012.sln
 del /f /q framework\d3d11\dxut\Optional\DXUTOpt_2013.sln
 del /f /q framework\d3d11\dxut\Optional\DXUTOpt_2015.sln
+
+del /f /q framework\d3d12\dx12u\build\dx12u_2015.sln
+del /f /q framework\d3d12\gu\build\gu_2015.sln
 goto :EOF
 
 ::--------------------------

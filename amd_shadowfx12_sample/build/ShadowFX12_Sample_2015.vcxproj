@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ShadowFX12_Sample</RootNamespace>
+    <ProjectName>ShadowFX12_Sample</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\bin\</OutDir>
+    <IntDir>Desktop_2015\x64\Debug\</IntDir>
+    <TargetName>ShadowFX12_Sample_Debug_2015</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\</OutDir>
+    <IntDir>Desktop_2015\x64\Release\</IntDir>
+    <TargetName>ShadowFX12_Sample_Release_2015</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4238;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NOMINMAX;ASSIMP_DLL;AMD_SHADOWFX_D3D12;AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;..\..\framework\d3d12\dx12u\inc;..\..\framework\d3d12\gu\inc;..\..\framework\d3d12\tml\inc;..\..\third_party\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;d3dcompiler.lib;dxgi.lib;assimp_x64_2015.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\third_party\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "..\bin\d3dcompiler_47.dll" if exist "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" xcopy "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64d.dll" xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64d.dll"  "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64.dll"  xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64.dll"   "..\bin" /H /R /Y &gt; nul
+xcopy "..\..\third_party\assimp\lib\assimp_x64_2015.dll"  "..\bin" /H /R /Y &gt; nul</Command>
+      <Message>Copying dependencies...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4238;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NOMINMAX;ASSIMP_DLL;AMD_SHADOWFX_D3D12;AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;NDEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;..\..\framework\d3d12\dx12u\inc;..\..\framework\d3d12\gu\inc;..\..\framework\d3d12\tml\inc;..\..\third_party\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d12.lib;d3dcompiler.lib;dxgi.lib;assimp_x64_2015.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\third_party\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "..\bin\d3dcompiler_47.dll" if exist "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" xcopy "$(ProgramFiles)\Windows Kits\8.1\Redist\D3D\x64\d3dcompiler_47.dll" "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64d.dll" xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64d.dll"  "..\bin" /H /R /Y &gt; nul
+if exist "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64.dll"  xcopy "..\..\AMD_ShadowFX\lib\GPUOpen_ShadowFX12_x64.dll"   "..\bin" /H /R /Y &gt; nul
+xcopy "..\..\third_party\assimp\lib\assimp_x64_2015.dll"  "..\bin" /H /R /Y &gt; nul</Command>
+      <Message>Copying dependencies...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\constant_buffer.hpp" />
+    <ClInclude Include="..\src\mesh_loader.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\mesh_loader.cpp" />
+    <ClCompile Include="..\src\shadowfx12_sample.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\framework\d3d12\gu\build\gu_2015.vcxproj">
+      <Project>{01785900-ED03-880B-56B2-880B425D880B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AMD_ShadowFX\build\AMD_ShadowFX12_2015.vcxproj">
+      <Project>{21473363-E6A1-4460-8454-0F4C411B5B3D}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\framework\d3d12\dx12u\build\dx12u_2015.vcxproj">
+      <Project>{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

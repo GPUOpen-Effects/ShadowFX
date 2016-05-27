@@ -23,9 +23,9 @@
 #ifndef AMD_SHADOWFX_H
 #define AMD_SHADOWFX_H
 
-#    define AMD_SHADOWFX_VERSION_MAJOR            1
-#    define AMD_SHADOWFX_VERSION_MINOR            4
-#    define AMD_SHADOWFX_VERSION_PATCH            1
+#    define AMD_SHADOWFX_VERSION_MAJOR            2
+#    define AMD_SHADOWFX_VERSION_MINOR            0
+#    define AMD_SHADOWFX_VERSION_PATCH            0
 
 #    ifdef AMD_SHADOWFX_COMPILE_STATIC_LIB
 #        define AMD_SHADOWFX_DLL_API
@@ -43,6 +43,12 @@
 #       define AMD_SHADOWFX_DEBUG                 1
 #   endif
 
+#if defined(AMD_SHADOWFX_D3D12)
+#include <d3d12.h>
+#else
+#include <d3d11.h>
+#endif
+
 namespace AMD
 {
 // The Return codes
@@ -55,6 +61,7 @@ typedef enum SHADOWFX_RETURN_CODE_t
     SHADOWFX_RETURN_CODE_INVALID_ARGUMENT,
     SHADOWFX_RETURN_CODE_INVALID_POINTER,
     SHADOWFX_RETURN_CODE_D3D11_CALL_FAILED,
+    SHADOWFX_RETURN_CODE_D3D12_CALL_FAILED,
 
     SHADOWFX_RETURN_CODE_COUNT,
 } SHADOWFX_RETURN_CODE;
@@ -152,44 +159,77 @@ struct ShadowFX_Desc
 
     static const uint                            m_MaxLightCount = 6; // this has to be at least 6 to allow cube map shadow maps to work
 
-    ID3D11Device*                                m_pDevice;
-    ID3D11DeviceContext*                         m_pContext;
+#if defined(AMD_SHADOWFX_D3D12)
+    ID3D12Device*                                m_pDevice; // [required]
+    ID3D12GraphicsCommandList*                   m_CommandList; // [required] Optional at initialization
+#else
+    ID3D11Device*                                m_pDevice; // required
+    ID3D11DeviceContext*                         m_pContext; // required
+#endif
 
-    bool                                         m_EnableCapture;
+    bool                                         m_EnableCapture; // [optional]
 
-    Camera                                       m_Viewer;
-    float2                                       m_DepthSize; // Viewer Depth Buffer Size
+    Camera                                       m_Viewer; // [required] Optional at initialization
+    float2                                       m_DepthSize; // [required] Viewer Depth Buffer Size. Optional at initialization
 
-    Camera                                       m_Light[m_MaxLightCount];
-    float2                                       m_ShadowSize[m_MaxLightCount];
-    float4                                       m_ShadowRegion[m_MaxLightCount];
-    float                                        m_SunArea[m_MaxLightCount];
-    float                                        m_DepthTestOffset[m_MaxLightCount];
-    float                                        m_NormalOffsetScale[m_MaxLightCount];
-    uint                                         m_ArraySlice[m_MaxLightCount];
-    uint                                         m_ActiveLightCount;
+    Camera                                       m_Light[m_MaxLightCount]; // [required] Optional at initialization
+    float2                                       m_ShadowSize[m_MaxLightCount];// [required] Optional at initialization
+    float4                                       m_ShadowRegion[m_MaxLightCount];// [required] Optional for shadow stored in texture arrays
+    float                                        m_SunArea[m_MaxLightCount]; // [required] Optional if contact hardening is not used
+    float                                        m_DepthTestOffset[m_MaxLightCount]; // [required] Optional at initialization
+    float                                        m_NormalOffsetScale[m_MaxLightCount]; // [required] Optional at initialization
+    float                                        m_Weight[m_MaxLightCount]; // [required] Optional at initialization. Only used with SHADOWFX_EXECUTION_WEIGHTED_AVG
+    uint                                         m_ArraySlice[m_MaxLightCount]; // [required]Optional at initialization
+    uint                                         m_ActiveLightCount; // [required]
 
-    SHADOWFX_EXECUTION                           m_Execution;
-    SHADOWFX_IMPLEMENTATION                      m_Implementation;
-    SHADOWFX_TEXTURE_TYPE                        m_TextureType;
-    SHADOWFX_TEXTURE_FETCH                       m_TextureFetch;
-    SHADOWFX_FILTERING                           m_Filtering;
-    SHADOWFX_TAP_TYPE                            m_TapType;
-    SHADOWFX_FILTER_SIZE                         m_FilterSize;
-    SHADOWFX_NORMAL_OPTION                       m_NormalOption;
+    SHADOWFX_EXECUTION                           m_Execution; // [required]
+    SHADOWFX_IMPLEMENTATION                      m_Implementation; // [required]
+    SHADOWFX_TEXTURE_TYPE                        m_TextureType; // [required]
+    SHADOWFX_TEXTURE_FETCH                       m_TextureFetch; // [required]
+    SHADOWFX_FILTERING                           m_Filtering; // [required]
+    SHADOWFX_TAP_TYPE                            m_TapType; // [required]
+    SHADOWFX_FILTER_SIZE                         m_FilterSize; // [required]
+    SHADOWFX_NORMAL_OPTION                       m_NormalOption; // [required]
 
-    ID3D11ShaderResourceView*                    m_pDepthSRV;  // input main viewer zbuffer
-    ID3D11ShaderResourceView*                    m_pShadowSRV; // input shadow map
-    ID3D11ShaderResourceView*                    m_pNormalSRV; // input main viewer normal data (for Deferred Renderers)
+#if defined(AMD_SHADOWFX_D3D12)
+    ID3D12Resource*                              m_pDepth; // [required] Optional at initialization
+    D3D12_SHADER_RESOURCE_VIEW_DESC              m_DepthSRV; // [required] Optional at initialization
 
-    ID3D11RenderTargetView*                      m_pOutputRTV; // output shadow mask
+    ID3D12Resource*                              m_pShadow; // [required] Optional at initialization
+    D3D12_SHADER_RESOURCE_VIEW_DESC              m_ShadowSRV; // [required] Optional at initialization
 
-    ID3D11DepthStencilState*                     m_pOutputDSS; // output dss can specify stencil test
-    ID3D11DepthStencilView*                      m_pOutputDSV; // output depth stencil view (used if dss != null) it should have stencil data
-    unsigned int                                 m_ReferenceDSS; // stencil reference value (used if dss != null)
+    ID3D12Resource*                              m_pNormal; // [optional] input main viewer normal data (for Deferred Renderers)
+    D3D12_SHADER_RESOURCE_VIEW_DESC              m_NormalSRV; // [optional]
+#else
 
-    ID3D11BlendState*                            m_pOutputBS;      // output bs can specify how to write to rtv
-    unsigned int                                 m_OutputChannels; // output channels flags (not used if bs != null)
+    ID3D11ShaderResourceView*                    m_pDepthSRV;  // [required] input main viewer zbuffer
+    ID3D11ShaderResourceView*                    m_pShadowSRV; // [required] input shadow map
+    ID3D11ShaderResourceView*                    m_pNormalSRV; // [optional] input main viewer normal data (for Deferred Renderers)
+    ID3D11RenderTargetView*                      m_pOutputRTV; // [required] output shadow mask 
+#endif
+
+    DXGI_FORMAT                                  m_OutputFormat; // [required] output shadow mask format. Optional in DX11
+
+#if defined(AMD_SHADOWFX_D3D12)
+    D3D12_DEPTH_STENCIL_DESC*                    m_pOutputDSS; // [optional] output dss can specify stencil test 
+    D3D12_BLEND_DESC*                            m_pOutputBS;      // [optional] output bs can specify how to write to rtv
+#else
+    ID3D11DepthStencilState*                     m_pOutputDSS; // [optional] output dss can specify stencil test 
+    ID3D11DepthStencilView*                      m_pOutputDSV; // [optional] output depth stencil view (used if dss != null) it should have stencil data
+    unsigned int                                 m_ReferenceDSS; // [optional] stencil reference value (used if dss != null)
+
+    ID3D11BlendState*                            m_pOutputBS;      // [optional] output bs can specify how to write to rtv
+    unsigned int                                 m_OutputChannels; // [optional] output channels flags (not used if bs != null)
+#endif
+
+#if defined(AMD_SHADOWFX_D3D12)
+    // instances are optional and are only available in DX12 in replacement to the automatic constant buffer renaming used in DX11
+    // different instances use different constant buffers so shadow masks can be created in parallel
+    unsigned int                                 m_MaxInstance; // maximum number of instances: Up to m_MaxInstance shadow masks can be created in parallel
+    unsigned int                                 m_InstanceID; // instance id must be less than m_MaxInstance. 
+
+    bool                                         m_PreserveViewport; // the library will not change the viewport and scissor if true
+#endif
 
     AMD_SHADOWFX_DLL_API                         ShadowFX_Desc();
 
@@ -224,11 +264,12 @@ extern "C"
     /**
     Execute ShadowFX rendering for a given ShadowFX_Desc parameters descriptior
     Calling this function requires setting up:
-    * m_pDeviceContext must be set to a valid immediate context
-    * m_pDepthSRV must be set to a valid shader resource view pointing to a depth buffer resource
+    * m_pDeviceContext must be set to a valid immediate context. Only used in DX11
+    * m_CommandList must be set to a valid command list. Only used in DX12
+    * m_pDepthSRV must be set to a valid shader resource view pointing to a depth buffer resource. Only used in DX11
     * m_DepthSize must be set to the correct size of m_pDepthSRV resource
-    * m_pShadowSRV must be set to a valid shader resource view pointing to a depth buffer resource
-    * m_pOutputRTV must be set to a valid render target view pointint to a resource of m_InputSize size
+    * m_pShadowSRV must be set to a valid shader resource view pointing to a depth buffer resource. Only used in DX11
+    * m_pOutputRTV must be set to a valid render target view pointint to a resource of m_InputSize size. Only used in DX11
     * m_Viewer - viewer camera parameters
     * m_ActiveLightCount must indicate a valid active light count (0, 6]
       for each active light application must specify values in:
@@ -253,15 +294,23 @@ extern "C"
     * m_FilterSize - select filter size from 7x7 to 15x15
     * m_NormalOption - each visible pixel on the screen is first reprojected in World Space. At this point it can be displaced along the normal
                        to help reduce incorrect self shadowing. Normal can either be calculated from depth buffer or fetched from SRV
-    * m_pNormalSRV - set to a valid SRV with normal gbuffer layer to use normal option READ_FROM_SRV
-
+    * m_pNormalSRV - set to a valid SRV with normal gbuffer layer to use normal option READ_FROM_SRV . Only used in DX11
+    
     * m_pOutputDSS - set to a valid depth stencil state to enable performance optimizations.
                      For example this can be used to enable stencil testing to reduce the number of filtered pixels on the screen
     * m_pOutputDSV - set to a valid depth stencil view to use in conjunction with m_pOutputDSS
     * m_ReferenceDSS - stencil reference value (used if m_pOutputDSS != NULL)
     * m_OutputChannels - set output write mask
     * m_pOutputBS - set the whole blend state (will override m_OutputChannels)
-
+    * m_pDepth must be set to a valid depth buffer resource. Only used in DX12
+    * m_DepthSRV must be set to a valid shader resource view associated with m_pDepth. Only used in DX12
+    * m_pShadow must be set to a valid depth buffer resource. Only used in DX12
+    * m_ShadowSRV must be set to a valid shader resource view associated with m_pShadow. Only used in DX12
+    * m_pNormal set to a valid normal gbuffer layer resource. Only used in DX12
+    * m_NormalSRV set to a valid shader resource view associated with m_pNormal. Only used in DX12
+    * m_MaxInstance maximum number of instances: Up to m_MaxInstance shadow masks can be created in parallel. Only used in DX12
+    * m_InstanceID instance id must be less than m_MaxInstance. Only used in DX12
+    * m_PreserveViewport the library will not change the viewport and scissor if set to true. The default is false and the library sets viewport and scissor
     */
     AMD_SHADOWFX_DLL_API SHADOWFX_RETURN_CODE ShadowFX_Render         (const ShadowFX_Desc & desc);
 

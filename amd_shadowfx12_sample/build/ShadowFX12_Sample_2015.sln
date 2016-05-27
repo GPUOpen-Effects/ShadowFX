@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShadowFX12_Sample", "ShadowFX12_Sample_2015.vcxproj", "{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AMD_ShadowFX12", "..\..\AMD_ShadowFX\build\AMD_ShadowFX12_2015.vcxproj", "{21473363-E6A1-4460-8454-0F4C411B5B3D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dx12u", "..\..\framework\d3d12\dx12u\build\dx12u_2015.vcxproj", "{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gu", "..\..\framework\d3d12\gu\build\gu_2015.vcxproj", "{01785900-ED03-880B-56B2-880B425D880B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}.Debug|x64.ActiveCfg = Debug|x64
+		{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}.Debug|x64.Build.0 = Debug|x64
+		{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}.Release|x64.ActiveCfg = Release|x64
+		{332B098E-9F8C-E69B-28FA-2C4E945A1D5B}.Release|x64.Build.0 = Release|x64
+		{21473363-E6A1-4460-8454-0F4C411B5B3D}.Debug|x64.ActiveCfg = DLL_Debug|x64
+		{21473363-E6A1-4460-8454-0F4C411B5B3D}.Debug|x64.Build.0 = DLL_Debug|x64
+		{21473363-E6A1-4460-8454-0F4C411B5B3D}.Release|x64.ActiveCfg = DLL_Release|x64
+		{21473363-E6A1-4460-8454-0F4C411B5B3D}.Release|x64.Build.0 = DLL_Release|x64
+		{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}.Debug|x64.ActiveCfg = Debug|x64
+		{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}.Debug|x64.Build.0 = Debug|x64
+		{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}.Release|x64.ActiveCfg = Release|x64
+		{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}.Release|x64.Build.0 = Release|x64
+		{01785900-ED03-880B-56B2-880B425D880B}.Debug|x64.ActiveCfg = Debug|x64
+		{01785900-ED03-880B-56B2-880B425D880B}.Debug|x64.Build.0 = Debug|x64
+		{01785900-ED03-880B-56B2-880B425D880B}.Release|x64.ActiveCfg = Release|x64
+		{01785900-ED03-880B-56B2-880B425D880B}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
