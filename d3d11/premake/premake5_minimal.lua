@@ -31,8 +31,8 @@ project "AMD_LIB_Minimal"
    -- Specify WindowsTargetPlatformVersion here for VS2015
    windowstarget (_AMD_WIN_SDK_VERSION)
 
-   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.inl", "../src/**.hlsl" }
-   includedirs { "../inc" }
+   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.inl", "../src/**.hlsl", "../../common/inc/*.h" }
+   includedirs { "../inc", "../../common/inc" }
    defines { "AMD_LIB_MINIMAL" }
 
    filter "configurations:Debug"

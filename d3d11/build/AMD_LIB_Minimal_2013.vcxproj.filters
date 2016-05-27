@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{AEFEE3F6-9AA0-0ECD-835B-22216F9C951D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\inc">
+      <UniqueIdentifier>{B7381BB1-A3F0-5CFE-0CF8-355AF8CEF7EE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="inc">
       <UniqueIdentifier>{1F80880B-8B89-887C-1405-9F7C800D947C}</UniqueIdentifier>
     </Filter>
@@ -41,10 +47,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\inc\AMD_LIB.h">
-      <Filter>inc</Filter>
+    <ClInclude Include="..\..\common\inc\AMD_Types.h">
+      <Filter>common\inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\AMD_Types.h">
+    <ClInclude Include="..\inc\AMD_LIB.h">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="..\src\AMD_Buffer.h">

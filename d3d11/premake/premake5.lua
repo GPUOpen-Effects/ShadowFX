@@ -31,8 +31,8 @@ project "AMD_LIB"
    -- Specify WindowsTargetPlatformVersion here for VS2015
    windowstarget (_AMD_WIN_SDK_VERSION)
 
-   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.inl", "../src/**.hlsl", "../../../ags_lib/inc/*.h" }
-   includedirs { "../inc", "../../../AGS_LIB/inc" }
+   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/**.inl", "../src/**.hlsl", "../../common/inc/*.h", "../../../ags_lib/inc/*.h" }
+   includedirs { "../inc", "../../common/inc", "../../../ags_lib/inc" }
 
    filter "configurations:Debug"
       defines { "WIN32", "_DEBUG", "_WINDOWS", "_LIB", "_WIN32_WINNT=0x0601" }
