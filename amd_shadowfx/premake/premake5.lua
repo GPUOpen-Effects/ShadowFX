@@ -46,7 +46,7 @@ project ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
    -- Specify WindowsTargetPlatformVersion here for VS2015
    windowstarget (_AMD_WIN_SDK_VERSION)
 
-   files { "../inc/**.h", "../src/**.h", "../src/**.cpp", "../src/Shaders/**.hlsl" }
+   files { "../inc/**.h", "../src/AMD_%{_AMD_LIBRARY_NAME}_Precompiled.h", "../src/AMD_%{_AMD_LIBRARY_NAME}11*.h", "../src/AMD_%{_AMD_LIBRARY_NAME}11*.cpp", "../src/Shaders/**.hlsl" }
    includedirs { "../inc", "../../amd_lib/shared/d3d11/inc" }
    links { "AMD_LIB" }
 
