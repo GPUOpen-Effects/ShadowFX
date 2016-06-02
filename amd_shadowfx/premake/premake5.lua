@@ -1,7 +1,8 @@
 _AMD_LIBRARY_NAME = "ShadowFX"
 _AMD_LIBRARY_NAME_ALL_CAPS = string.upper(_AMD_LIBRARY_NAME)
+_AMD_D3D_VERSION = "d3d11"
 
--- Set _AMD_LIBRARY_NAME before including amd_premake_util.lua
+-- Set _AMD_LIBRARY_NAME and _AMD_D3D_VERSION before including amd_premake_util.lua
 dofile ("../../premake/amd_premake_util.lua")
 
 workspace ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
@@ -22,7 +23,7 @@ workspace ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
 externalproject "AMD_LIB"
    kind "StaticLib"
    language "C++"
-   location "../../amd_lib/shared/d3d11/build"
+   location "../../amd_lib/shared/%{_AMD_D3D_VERSION}/build"
    filename ("AMD_LIB" .. _AMD_VS_SUFFIX)
    uuid "0D2AEA47-7909-69E3-8221-F4B9EE7FCF44"
    configmap {
@@ -47,7 +48,7 @@ project ("AMD_" .. _AMD_LIBRARY_NAME .. "11")
    windowstarget (_AMD_WIN_SDK_VERSION)
 
    files { "../inc/**.h", "../src/AMD_%{_AMD_LIBRARY_NAME}_Precompiled.h", "../src/AMD_%{_AMD_LIBRARY_NAME}11*.h", "../src/AMD_%{_AMD_LIBRARY_NAME}11*.cpp", "../src/Shaders/**.hlsl" }
-   includedirs { "../inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/d3d11/inc" }
+   includedirs { "../inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/%{_AMD_D3D_VERSION}/inc" }
    links { "AMD_LIB" }
 
    filter "configurations:DLL_*"

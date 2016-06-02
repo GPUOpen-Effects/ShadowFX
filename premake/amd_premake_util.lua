@@ -14,13 +14,13 @@ _AMD_LIBRARY_PREFIX = "GPUOpen_"
 
 -- Specify build output directory structure here: e.g. VS2012\x64\DLL_Debug
 _AMD_SAMPLE_DIR_LAYOUT  = "Desktop%{_AMD_VS_SUFFIX}/%{cfg.platform}/%{cfg.buildcfg}"
-_AMD_LIBRARY_DIR_LAYOUT = "%{_AMD_ACTION_ALL_CAPS}/%{cfg.platform}/%{cfg.buildcfg}"
-_AMD_LIBRARY_DIR_LAYOUT_BACKSLASH = "%{_AMD_ACTION_ALL_CAPS}\\%{cfg.platform}\\%{cfg.buildcfg}"
+_AMD_LIBRARY_DIR_LAYOUT = "%{_AMD_ACTION_ALL_CAPS}/%{_AMD_D3D_VERSION}/%{cfg.platform}/%{cfg.buildcfg}"
+_AMD_LIBRARY_DIR_LAYOUT_BACKSLASH = "%{_AMD_ACTION_ALL_CAPS}\\%{_AMD_D3D_VERSION}\\%{cfg.platform}\\%{cfg.buildcfg}"
 
 -- Some projects have a "minimal dependencies" build. Give them a different output
 -- directory structure to avoid collisions with the full-dependencies version.
 _AMD_SAMPLE_DIR_LAYOUT_MINIMAL  = "Desktop%{_AMD_VS_SUFFIX}/minimal/%{cfg.platform}/%{cfg.buildcfg}"
-_AMD_LIBRARY_DIR_LAYOUT_MINIMAL = "%{_AMD_ACTION_ALL_CAPS}/minimal/%{cfg.platform}/%{cfg.buildcfg}"
+_AMD_LIBRARY_DIR_LAYOUT_MINIMAL = "%{_AMD_ACTION_ALL_CAPS}/%{_AMD_D3D_VERSION}/minimal/%{cfg.platform}/%{cfg.buildcfg}"
 
 -- Specify WindowsTargetPlatformVersion here for VS2015
 _AMD_WIN_SDK_VERSION = "8.1"

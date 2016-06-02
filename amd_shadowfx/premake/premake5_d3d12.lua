@@ -1,10 +1,10 @@
 _AMD_LIBRARY_NAME = "ShadowFX"
 _AMD_LIBRARY_NAME_ALL_CAPS = string.upper(_AMD_LIBRARY_NAME)
+_AMD_D3D_VERSION = "d3d12"
 
--- Set _AMD_LIBRARY_NAME before including amd_premake_util.lua
+-- Set _AMD_LIBRARY_NAME and _AMD_D3D_VERSION before including amd_premake_util.lua
 dofile ("../../premake/amd_premake_util.lua")
 
--- D3D12
 workspace ("AMD_" .. _AMD_LIBRARY_NAME .. "12")
    configurations { "DLL_Debug", "DLL_Release", "Lib_Debug", "Lib_Release", "DLL_Release_MT" }
    platforms { "Win32", "x64" }
@@ -35,7 +35,7 @@ project ("AMD_" .. _AMD_LIBRARY_NAME .. "12")
    windowstarget (_AMD_WIN_SDK_VERSION_FOR_D3D12)
 
    files { "../inc/**.h", "../src/AMD_%{_AMD_LIBRARY_NAME}_Precompiled.h", "../src/AMD_%{_AMD_LIBRARY_NAME}12*.h", "../src/AMD_%{_AMD_LIBRARY_NAME}12*.cpp", "../src/Shaders/**.hlsl" }
-   includedirs { "../inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/d3d12/inc" }
+   includedirs { "../inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/%{_AMD_D3D_VERSION}/inc" }
    defines { "AMD_SHADOWFX_D3D12" }
 
    filter "configurations:DLL_*"
