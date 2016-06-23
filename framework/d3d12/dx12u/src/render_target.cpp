@@ -53,7 +53,7 @@ namespace
         if (h.Get() == nullptr)
         {
             auto heap_default = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT, gpu_mask, visible_mask);
-            auto tex_2d_desc = CD3DX12_RESOURCE_DESC::Tex2D(format, width, static_cast<uint32_t>(height), 1, 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET);
+            auto tex_2d_desc = CD3DX12_RESOURCE_DESC::Tex2D(format, width, static_cast<uint32_t>(height), 1, 1, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET);
             auto r = dvc->CreateCommittedResource(&heap_default, D3D12_HEAP_FLAG_NONE,
                 &tex_2d_desc,
                 D3D12_RESOURCE_STATE_RENDER_TARGET, &clear_value, IID_PPV_ARGS(&rsrc));
@@ -61,7 +61,7 @@ namespace
         }
         else
         {
-            auto tex_2d_desc = CD3DX12_RESOURCE_DESC::Tex2D(format, width, static_cast<uint32_t>(height), 1, 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET);
+            auto tex_2d_desc = CD3DX12_RESOURCE_DESC::Tex2D(format, width, static_cast<uint32_t>(height), 1, 1, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET);
             auto r = dvc->CreatePlacedResource(h.Get(), heap_offset,
                 &tex_2d_desc,
                 D3D12_RESOURCE_STATE_RENDER_TARGET, &clear_value, IID_PPV_ARGS(&rsrc));

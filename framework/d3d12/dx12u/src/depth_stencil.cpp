@@ -86,7 +86,7 @@ namespace
         if (h.Get() == nullptr)
         {
             auto default_heap = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
-            auto tex_desc = CD3DX12_RESOURCE_DESC::Tex2D(tex_format, width, static_cast<uint32_t>(height), static_cast<uint16_t>(array_sz), 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
+            auto tex_desc = CD3DX12_RESOURCE_DESC::Tex2D(tex_format, width, static_cast<uint32_t>(height), static_cast<uint16_t>(array_sz), 1, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
             auto r = dvc->CreateCommittedResource(&default_heap, D3D12_HEAP_FLAG_NONE,
                 &tex_desc,
                 D3D12_RESOURCE_STATE_DEPTH_WRITE, &depth_clear_value, IID_PPV_ARGS(&rsrc));
@@ -94,7 +94,7 @@ namespace
         }
         else
         {
-            auto tex_desc = CD3DX12_RESOURCE_DESC::Tex2D(tex_format, width, static_cast<uint32_t>(height), static_cast<uint16_t>(array_sz), 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
+            auto tex_desc = CD3DX12_RESOURCE_DESC::Tex2D(tex_format, width, static_cast<uint32_t>(height), static_cast<uint16_t>(array_sz), 1, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
             auto r = dvc->CreatePlacedResource(h.Get(), heap_offset,
                 &tex_desc,
                 D3D12_RESOURCE_STATE_DEPTH_WRITE, &depth_clear_value, IID_PPV_ARGS(&rsrc));
