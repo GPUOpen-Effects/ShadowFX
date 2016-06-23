@@ -1,8 +1,12 @@
 # AMD ShadowFX
 
-![AMD TressFX](http://gpuopen-effects.github.io/media/effects/shadowfx_thumbnail.png)
+![AMD ShadowFX](http://gpuopen-effects.github.io/media/effects/shadowfx_thumbnail.png)
 
 The ShadowFX library provides a scalable and GCN-optimized solution for deferred shadow filtering. Currently the library supports uniform and contact hardening shadow (CHS) kernels.
+
+<div>
+  <a href="https://github.com/GPUOpen-Effects/ShadowFX/releases/latest/"><img src="http://gpuopen-effects.github.io/media/latest-release-button.svg" alt="Latest release" title="Latest release"></a>
+</div>
 
 Version 2.0 of the library now supports both DirectX&reg; 11 and DirectX&reg; 12. The ShadowFX API is unified across D3D11 and D3D12, allowing an easy transition to D3D12. Samples are provided for both D3D11 and D3D12 versions.
 
