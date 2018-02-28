@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="inc">
+      <UniqueIdentifier>{1F80880B-8B89-887C-1405-9F7C800D947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\gu">
+      <UniqueIdentifier>{6A55CA04-56F7-F4DA-3FB2-082F2BF37B2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\camera">
+      <UniqueIdentifier>{255F4553-1117-87A0-7A1E-60FC66F52191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cmd_line">
+      <UniqueIdentifier>{177B66C0-03DE-F564-AC63-2E1B98A5C1E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mesh">
+      <UniqueIdentifier>{29B133CF-157E-8EDA-3E97-7C822AC3C368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mesh\detail">
+      <UniqueIdentifier>{CBA027C5-372C-9589-403D-187EAC47F189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\texture">
+      <UniqueIdentifier>{AD45B3E2-19FB-2BD8-A2EF-25AF0EA422DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\texture\detail">
+      <UniqueIdentifier>{CF78CAF4-BB5C-8B4A-24BD-859D10C075CC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\time">
+      <UniqueIdentifier>{0B9837CF-F764-92DA-207E-80820CAAC768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utility">
+      <UniqueIdentifier>{90DE9651-FC93-0F47-8588-091EF13C064B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\gu\gu.hpp">
+      <Filter>inc\gu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\camera\gu_free_camera.hpp">
+      <Filter>src\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cmd_line\gu_cmd_line.hpp">
+      <Filter>src\cmd_line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mesh\detail\gu_make_ib.hpp">
+      <Filter>src\mesh\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mesh\gu_mesh.hpp">
+      <Filter>src\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\texture\gu_texture.hpp">
+      <Filter>src\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\texture\gu_texture_generator.hpp">
+      <Filter>src\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\time\gu_timer.hpp">
+      <Filter>src\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utility\gu_utility.hpp">
+      <Filter>src\utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\cmd_line\gu_cmd_line.cpp">
+      <Filter>src\cmd_line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mesh\detail\gu_cube.cpp">
+      <Filter>src\mesh\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mesh\detail\gu_mesh.cpp">
+      <Filter>src\mesh\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mesh\detail\gu_sphere.cpp">
+      <Filter>src\mesh\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mesh\detail\gu_torus.cpp">
+      <Filter>src\mesh\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\texture\detail\gu_brick.cpp">
+      <Filter>src\texture\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\texture\detail\gu_checkerboard.cpp">
+      <Filter>src\texture\detail</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
