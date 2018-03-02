@@ -9,21 +9,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\ResourceFiles\resource.h">
+      <Filter>ResourceFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ShadowFX_Sample_UI.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ShadowFX_Sample.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\src\ResourceFiles\dpiaware.manifest">
       <Filter>ResourceFiles</Filter>
     </None>
     <None Include="..\src\Shaders\ShadowFX_Sample.hlsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\src\ShadowFX_Sample_UI.inl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\ResourceFiles\resource.h">
-      <Filter>ResourceFiles</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\ShadowFX_Sample.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\src\ResourceFiles\ShadowFX_Sample.rc">

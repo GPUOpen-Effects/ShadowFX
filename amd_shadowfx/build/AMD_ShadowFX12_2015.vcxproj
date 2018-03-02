@@ -48,7 +48,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>AMD_ShadowFX12</RootNamespace>
     <ProjectName>AMD_ShadowFX12</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'" Label="Configuration">
@@ -216,7 +216,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -243,9 +243,9 @@ xcopy "..\lib\VS2015\d3d12\Win32\DLL_Debug\$(TargetName).lib"  "..\lib" /H /R /Y
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
@@ -270,7 +270,7 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Debug\$(TargetName).lib"  "..\lib" /H /R /Y &
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -283,7 +283,6 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Debug\$(TargetName).lib"  "..\lib" /H /R /Y &
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>d3d12.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -302,7 +301,7 @@ xcopy "..\lib\VS2015\d3d12\Win32\DLL_Release\$(TargetName).lib"  "..\lib" /H /R 
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -315,7 +314,6 @@ xcopy "..\lib\VS2015\d3d12\Win32\DLL_Release\$(TargetName).lib"  "..\lib" /H /R 
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>d3d12.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -334,7 +332,7 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -355,9 +353,9 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
@@ -376,7 +374,7 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -389,7 +387,6 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
@@ -402,7 +399,7 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_LIB;AMD_SHADOWFX_COMPILE_STATIC_LIB;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -415,7 +412,6 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
@@ -428,7 +424,7 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -442,7 +438,6 @@ xcopy "..\lib\VS2015\d3d12\x64\DLL_Release\$(TargetName).lib"  "..\lib" /H /R /Y
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>d3d12.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -461,7 +456,7 @@ xcopy "..\lib\VS2015\d3d12\Win32\DLL_Release_MT\$(TargetName).lib"  "..\lib" /H 
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMD_SHADOWFX_D3D12;_USRDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0A00;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -475,7 +470,6 @@ xcopy "..\lib\VS2015\d3d12\Win32\DLL_Release_MT\$(TargetName).lib"  "..\lib" /H 
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>d3d12.lib;%(AdditionalDependencies)</AdditionalDependencies>

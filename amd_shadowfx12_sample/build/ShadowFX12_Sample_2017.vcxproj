@@ -64,7 +64,7 @@
       <DisableSpecificWarnings>4238;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NOMINMAX;ASSIMP_DLL;AMD_SHADOWFX_D3D12;AMD_SHADOWFX_COMPILE_DYNAMIC_LIB=1;WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\AMD_ShadowFX\inc;..\..\amd_lib\shared\common\inc;..\..\amd_lib\shared\d3d12\inc;..\..\framework\d3d12\dx12u\inc;..\..\framework\d3d12\gu\inc;..\..\framework\d3d12\tml\inc;..\..\third_party\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
@@ -127,14 +127,14 @@ xcopy "..\..\third_party\assimp\lib\assimp_x64_2015.dll"  "..\bin" /H /R /Y &gt;
     <ClCompile Include="..\src\shadowfx12_sample.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\framework\d3d12\gu\build\gu_2017.vcxproj">
-      <Project>{01785900-ED03-880B-56B2-880B425D880B}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\AMD_ShadowFX\build\AMD_ShadowFX12_2017.vcxproj">
       <Project>{21473363-E6A1-4460-8454-0F4C411B5B3D}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\framework\d3d12\dx12u\build\dx12u_2017.vcxproj">
       <Project>{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\framework\d3d12\gu\build\gu_2017.vcxproj">
+      <Project>{01785900-ED03-880B-56B2-880B425D880B}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -53,25 +53,36 @@ project (_AMD_LIBRARY_NAME .. "_Sample")
    disablewarnings { "4238", "4100" } -- allow 4238 in simple samples, simplifies D3D12X
 
    -- Specify WindowsTargetPlatformVersion here for VS2015
-   windowstarget (_AMD_WIN_SDK_VERSION_FOR_D3D12)
+   systemversion (_AMD_WIN_SDK_VERSION_FOR_D3D12)
 
    -- Copy DLLs to the local bin directory
    postbuildcommands { amdSamplePostbuildCommands(false, true) }
    postbuildmessage "Copying dependencies..."
 
+   -- Use old assimp libraries for 2017
+   assimpLibraryName = "assimp_%{cfg.platform}%{_AMD_VS_SUFFIX}"
+   if _AMD_VS_SUFFIX == "_2017" then
+      assimpLibraryName = "assimp_%{cfg.platform}_2015"
+   end
+
    files { "../src/**.hpp", "../src/**.cpp", "../src/**.hlsl", "../src/**.inl" }
    includedirs { "../../AMD_%{_AMD_LIBRARY_NAME_GENERAL}/inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/d3d12/inc", "../../framework/d3d12/dx12u/inc", "../../framework/d3d12/gu/inc", "../../framework/d3d12/tml/inc", "../../third_party/assimp/include" }
    libdirs { "../../third_party/assimp/lib" }
-   links { "AMD_%{_AMD_LIBRARY_NAME}", "dx12u", "gu", "d3d12", "d3dcompiler", "dxgi", "assimp_%{cfg.platform}%{_AMD_VS_SUFFIX}" }
+   links { "AMD_%{_AMD_LIBRARY_NAME}", "dx12u", "gu", "d3d12", "d3dcompiler", "dxgi", assimpLibraryName }
    defines { "NOMINMAX", "ASSIMP_DLL", "AMD_SHADOWFX_D3D12", "AMD_%{_AMD_LIBRARY_NAME_GENERAL_ALL_CAPS}_COMPILE_DYNAMIC_LIB=1" }
+   entrypoint "mainCRTStartup"
 
    filter "configurations:Debug"
       defines { "WIN32", "_DEBUG", "DEBUG", "PROFILE", "_WINDOWS", "_WIN32_WINNT=0x0A00" }
-      flags { "Symbols", "FatalWarnings", "Unicode" }
+      flags { "FatalWarnings" }
+      symbols "On"
+      characterset "Unicode"
       targetsuffix ("_Debug" .. _AMD_VS_SUFFIX)
 
    filter "configurations:Release"
       defines { "WIN32", "NDEBUG", "PROFILE", "_WINDOWS", "_WIN32_WINNT=0x0A00" }
-      flags { "LinkTimeOptimization", "Symbols", "FatalWarnings", "Unicode" }
+      flags { "LinkTimeOptimization", "FatalWarnings" }
+      symbols "On"
+      characterset "Unicode"
       targetsuffix ("_Release" .. _AMD_VS_SUFFIX)
       optimize "On"

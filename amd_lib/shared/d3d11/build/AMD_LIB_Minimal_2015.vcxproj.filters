@@ -24,29 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\Shaders\AMD_FullscreenPass.hlsl">
-      <Filter>src\Shaders</Filter>
-    </None>
-    <None Include="..\src\Shaders\AMD_Quaternion.hlsl">
-      <Filter>src\Shaders</Filter>
-    </None>
-    <None Include="..\src\Shaders\AMD_UnitCube.hlsl">
-      <Filter>src\Shaders</Filter>
-    </None>
-    <None Include="..\src\Shaders\SeparableFilter\FilterCommon.hlsl">
-      <Filter>src\Shaders\SeparableFilter</Filter>
-    </None>
-    <None Include="..\src\Shaders\SeparableFilter\FilterKernel.hlsl">
-      <Filter>src\Shaders\SeparableFilter</Filter>
-    </None>
-    <None Include="..\src\Shaders\SeparableFilter\HorizontalFilter.hlsl">
-      <Filter>src\Shaders\SeparableFilter</Filter>
-    </None>
-    <None Include="..\src\Shaders\SeparableFilter\VerticalFilter.hlsl">
-      <Filter>src\Shaders\SeparableFilter</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\common\inc\AMD_Types.h">
       <Filter>common\inc</Filter>
     </ClInclude>
@@ -115,5 +92,28 @@
     <ClCompile Include="..\src\DirectXTex\ScreenGrab.cpp">
       <Filter>src\DirectXTex</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Shaders\AMD_FullscreenPass.hlsl">
+      <Filter>src\Shaders</Filter>
+    </None>
+    <None Include="..\src\Shaders\AMD_Quaternion.hlsl">
+      <Filter>src\Shaders</Filter>
+    </None>
+    <None Include="..\src\Shaders\AMD_UnitCube.hlsl">
+      <Filter>src\Shaders</Filter>
+    </None>
+    <None Include="..\src\Shaders\SeparableFilter\FilterCommon.hlsl">
+      <Filter>src\Shaders\SeparableFilter</Filter>
+    </None>
+    <None Include="..\src\Shaders\SeparableFilter\FilterKernel.hlsl">
+      <Filter>src\Shaders\SeparableFilter</Filter>
+    </None>
+    <None Include="..\src\Shaders\SeparableFilter\HorizontalFilter.hlsl">
+      <Filter>src\Shaders\SeparableFilter</Filter>
+    </None>
+    <None Include="..\src\Shaders\SeparableFilter\VerticalFilter.hlsl">
+      <Filter>src\Shaders\SeparableFilter</Filter>
+    </None>
   </ItemGroup>
 </Project>

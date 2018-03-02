@@ -32,7 +32,7 @@ project ("AMD_" .. _AMD_LIBRARY_NAME .. "12")
    rtti "Off"
 
    -- Specify WindowsTargetPlatformVersion here for VS2015
-   windowstarget (_AMD_WIN_SDK_VERSION_FOR_D3D12)
+   systemversion (_AMD_WIN_SDK_VERSION_FOR_D3D12)
 
    files { "../inc/**.h", "../src/AMD_%{_AMD_LIBRARY_NAME}_Precompiled.h", "../src/AMD_%{_AMD_LIBRARY_NAME}12*.h", "../src/AMD_%{_AMD_LIBRARY_NAME}12*.cpp", "../src/Shaders/**.hlsl" }
    includedirs { "../inc", "../../amd_lib/shared/common/inc", "../../amd_lib/shared/%{_AMD_D3D_VERSION}/inc" }
@@ -52,18 +52,22 @@ project ("AMD_" .. _AMD_LIBRARY_NAME .. "12")
 
    filter "configurations:*_Debug"
       defines { "WIN32", "_DEBUG", "_WINDOWS", "_WIN32_WINNT=0x0A00" }
-      flags { "Symbols", "FatalWarnings", "Unicode" }
+      flags { "FatalWarnings" }
+      symbols "On"
+      characterset "Unicode"
       -- add "d" to the end of the library name for debug builds
       targetsuffix "d"
 
    filter "configurations:*_Release"
       defines { "WIN32", "NDEBUG", "_WINDOWS", "_WIN32_WINNT=0x0A00" }
-      flags { "FatalWarnings", "Unicode" }
+      flags { "FatalWarnings" }
+      characterset "Unicode"
       optimize "On"
 
    filter "configurations:DLL_Release_MT"
       defines { "WIN32", "NDEBUG", "_WINDOWS", "_WIN32_WINNT=0x0A00" }
-      flags { "FatalWarnings", "Unicode" }
+      flags { "FatalWarnings" }
+      characterset "Unicode"
       -- link against the static runtime to avoid introducing a dependency
       -- on the particular version of Visual Studio used to build the DLLs
       flags { "StaticRuntime" }

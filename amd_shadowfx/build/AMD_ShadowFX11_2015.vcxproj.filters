@@ -12,14 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\Shaders\AMD_ShadowFX.hlsl">
-      <Filter>src\Shaders</Filter>
-    </None>
-    <None Include="..\src\Shaders\AMD_ShadowFX_Common.hlsl">
-      <Filter>src\Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\inc\AMD_ShadowFX.h">
       <Filter>inc</Filter>
     </ClInclude>
@@ -37,5 +29,13 @@
     <ClCompile Include="..\src\AMD_ShadowFX11_Opaque.cpp">
       <Filter>src</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Shaders\AMD_ShadowFX.hlsl">
+      <Filter>src\Shaders</Filter>
+    </None>
+    <None Include="..\src\Shaders\AMD_ShadowFX_Common.hlsl">
+      <Filter>src\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

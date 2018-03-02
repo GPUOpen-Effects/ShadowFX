@@ -12,11 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\inc\detail\buffer.ipp">
-      <Filter>inc\detail</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\inc\app.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -112,5 +107,10 @@
     <ClCompile Include="..\src\vertex_buffer.cpp">
       <Filter>src</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\inc\detail\buffer.ipp">
+      <Filter>inc\detail</Filter>
+    </None>
   </ItemGroup>
 </Project>
