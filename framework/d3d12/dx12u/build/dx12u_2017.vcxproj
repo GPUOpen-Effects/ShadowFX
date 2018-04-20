@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -11,25 +11,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EBB939DC-98E4-49DF-B1F1-D2E80A11F60A}</ProjectGuid>
+    <ProjectGuid>{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AMD_SDK_Minimal</RootNamespace>
-    <ProjectName>AMD_SDK_Minimal</ProjectName>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <RootNamespace>dx12u</RootNamespace>
+    <ProjectName>dx12u</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -44,14 +44,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\lib\</OutDir>
-    <IntDir>Desktop_2015\minimal\x64\Debug\</IntDir>
-    <TargetName>AMD_SDK_Minimal_Debug_2015</TargetName>
+    <IntDir>Desktop_2017\x64\Debug\</IntDir>
+    <TargetName>dx12u_Debug_2017</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>..\lib\</OutDir>
-    <IntDir>Desktop_2015\minimal\x64\Release\</IntDir>
-    <TargetName>AMD_SDK_Minimal_Release_2015</TargetName>
+    <IntDir>Desktop_2017\x64\Release\</IntDir>
+    <TargetName>dx12u_Release_2017</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -59,8 +59,9 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SDK_MINIMAL;WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\dxut\Core;..\..\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4201;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_LIB;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\inc;..\..\gu\inc;..\..\tml\inc;..\..\..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -78,8 +79,9 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions>AMD_SDK_MINIMAL;WIN32;NDEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\dxut\Core;..\..\dxut\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4201;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_WINDOWS;_LIB;_WIN32_WINNT=0x0A00;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\inc;..\..\gu\inc;..\..\tml\inc;..\..\..\..\amd_lib\shared\d3d12\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -99,37 +101,42 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\inc\AMD_SDK.h" />
-    <ClInclude Include="..\inc\ShaderCacheSampleHelper.h" />
-    <ClInclude Include="..\src\AMD_Mesh.h" />
-    <ClInclude Include="..\src\Geometry.h" />
-    <ClInclude Include="..\src\HUD.h" />
-    <ClInclude Include="..\src\HelperFunctions.h" />
-    <ClInclude Include="..\src\LineRender.h" />
-    <ClInclude Include="..\src\Magnify.h" />
-    <ClInclude Include="..\src\MagnifyTool.h" />
-    <ClInclude Include="..\src\ShaderCache.h" />
-    <ClInclude Include="..\src\Sprite.h" />
-    <ClInclude Include="..\src\Timer.h" />
-    <ClInclude Include="..\src\crc.h" />
+    <ClInclude Include="..\inc\app.hpp" />
+    <ClInclude Include="..\inc\cmd_mgr.hpp" />
+    <ClInclude Include="..\inc\depth_stencil.hpp" />
+    <ClInclude Include="..\inc\descriptor_heap.hpp" />
+    <ClInclude Include="..\inc\device.hpp" />
+    <ClInclude Include="..\inc\dx12u.hpp" />
+    <ClInclude Include="..\inc\memory.hpp" />
+    <ClInclude Include="..\inc\pso.hpp" />
+    <ClInclude Include="..\inc\queries.hpp" />
+    <ClInclude Include="..\inc\render_target.hpp" />
+    <ClInclude Include="..\inc\root_signature.hpp" />
+    <ClInclude Include="..\inc\shader.hpp" />
+    <ClInclude Include="..\inc\swap_chain.hpp" />
+    <ClInclude Include="..\inc\text.hpp" />
+    <ClInclude Include="..\inc\texture.hpp" />
+    <ClInclude Include="..\inc\vertex_buffer.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\AMD_Mesh.cpp" />
-    <ClCompile Include="..\src\Geometry.cpp" />
-    <ClCompile Include="..\src\HUD.cpp" />
-    <ClCompile Include="..\src\HelperFunctions.cpp" />
-    <ClCompile Include="..\src\LineRender.cpp" />
-    <ClCompile Include="..\src\Magnify.cpp" />
-    <ClCompile Include="..\src\MagnifyTool.cpp" />
-    <ClCompile Include="..\src\ShaderCache.cpp" />
-    <ClCompile Include="..\src\ShaderCacheSampleHelper.cpp" />
-    <ClCompile Include="..\src\Sprite.cpp" />
-    <ClCompile Include="..\src\Timer.cpp" />
-    <ClCompile Include="..\src\crc.cpp" />
+    <ClCompile Include="..\src\app.cpp" />
+    <ClCompile Include="..\src\cmd_mgr.cpp" />
+    <ClCompile Include="..\src\depth_stencil.cpp" />
+    <ClCompile Include="..\src\descriptor_heap.cpp" />
+    <ClCompile Include="..\src\device.cpp" />
+    <ClCompile Include="..\src\dx12u.cpp" />
+    <ClCompile Include="..\src\pso.cpp" />
+    <ClCompile Include="..\src\queries.cpp" />
+    <ClCompile Include="..\src\render_target.cpp" />
+    <ClCompile Include="..\src\root_signature.cpp" />
+    <ClCompile Include="..\src\shader.cpp" />
+    <ClCompile Include="..\src\swap_chain.cpp" />
+    <ClCompile Include="..\src\text.cpp" />
+    <ClCompile Include="..\src\texture.cpp" />
+    <ClCompile Include="..\src\vertex_buffer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\Shaders\Line.hlsl" />
-    <None Include="..\src\Shaders\Sprite.hlsl" />
+    <None Include="..\inc\detail\buffer.ipp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

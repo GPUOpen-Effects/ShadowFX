@@ -23,18 +23,22 @@ project "gu"
    floatingpoint "Fast"
 
    -- Specify WindowsTargetPlatformVersion here for VS2015
-   windowstarget (_AMD_WIN_SDK_VERSION_FOR_D3D12)
+   systemversion (_AMD_WIN_SDK_VERSION_FOR_D3D12)
 
    files { "../inc/**.hpp", "../src/**.hpp", "../src/**.cpp", "../src/**.hlsl" }
    includedirs { "../src", "../../tml/inc" }
 
    filter "configurations:Debug"
       defines { "WIN32", "_DEBUG", "DEBUG", "PROFILE", "_WINDOWS", "_LIB", "_WIN32_WINNT=0x0601" }
-      flags { "Symbols", "FatalWarnings", "Unicode" }
+      flags { "FatalWarnings" }
+      symbols "On"
+      characterset "Unicode"
       targetsuffix ("_Debug" .. _AMD_VS_SUFFIX)
 
    filter "configurations:Release"
       defines { "WIN32", "NDEBUG", "_WINDOWS", "_LIB", "_WIN32_WINNT=0x0601" }
-      flags { "LinkTimeOptimization", "Symbols", "FatalWarnings", "Unicode" }
+      flags { "LinkTimeOptimization", "FatalWarnings" }
+      symbols "On"
+      characterset "Unicode"
       targetsuffix ("_Release" .. _AMD_VS_SUFFIX)
       optimize "On"

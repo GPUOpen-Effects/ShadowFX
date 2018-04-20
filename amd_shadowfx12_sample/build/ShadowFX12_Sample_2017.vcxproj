@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -23,13 +23,13 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -45,15 +45,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\</OutDir>
-    <IntDir>Desktop_2015\x64\Debug\</IntDir>
-    <TargetName>ShadowFX12_Sample_Debug_2015</TargetName>
+    <IntDir>Desktop_2017\x64\Debug\</IntDir>
+    <TargetName>ShadowFX12_Sample_Debug_2017</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\</OutDir>
-    <IntDir>Desktop_2015\x64\Release\</IntDir>
-    <TargetName>ShadowFX12_Sample_Release_2015</TargetName>
+    <IntDir>Desktop_2017\x64\Release\</IntDir>
+    <TargetName>ShadowFX12_Sample_Release_2017</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,13 +127,13 @@ xcopy "..\..\third_party\assimp\lib\assimp_x64_2015.dll"  "..\bin" /H /R /Y &gt;
     <ClCompile Include="..\src\shadowfx12_sample.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AMD_ShadowFX\build\AMD_ShadowFX12_2015.vcxproj">
+    <ProjectReference Include="..\..\AMD_ShadowFX\build\AMD_ShadowFX12_2017.vcxproj">
       <Project>{21473363-E6A1-4460-8454-0F4C411B5B3D}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\framework\d3d12\dx12u\build\dx12u_2015.vcxproj">
+    <ProjectReference Include="..\..\framework\d3d12\dx12u\build\dx12u_2017.vcxproj">
       <Project>{5937530F-C54B-7BC0-8ECD-1E20FAA077F1}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\framework\d3d12\gu\build\gu_2015.vcxproj">
+    <ProjectReference Include="..\..\framework\d3d12\gu\build\gu_2017.vcxproj">
       <Project>{01785900-ED03-880B-56B2-880B425D880B}</Project>
     </ProjectReference>
   </ItemGroup>
